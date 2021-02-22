@@ -1,0 +1,45 @@
+/*======================================
+========================================
+
+1.NAV
+2.HEADER
+3.BODY
+4.FOOTER
+
+========================================
+========================================*/
+
+/*==============1.NAV==================*/
+.navbar-inverse {
+    padding: 15px;
+}
+.nav{
+    font-size:1.25em;
+}
+#logo{
+    width:50px;
+    height:50px;
+}
+/*==============2.HEADER===============*/
+/*==============3.BODY=================*/
+body{
+    background-color:#333333;
+}
+.list-group{
+    width:45%;
+    margin: 10px;
+ }
+#rosterTitle{
+    color: #9d9d9d;
+}
+/*==============4.FOOTER=================*/
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #222222;
+    color: #9d9d9d;
+    text-align: center;
+    padding-top: 10px;
+}
