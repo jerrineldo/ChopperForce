@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">
-                <img src="logo.png.png" id ="logo" class="d-inline-block align-top" alt="army logo">
+                <img src="../Images/logo.png.png" id ="logo" class="d-inline-block align-top" alt="army logo">
             </a>
         </div>
         <ul class="nav navbar-nav">

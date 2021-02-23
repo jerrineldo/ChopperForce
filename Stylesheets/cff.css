@@ -29,8 +29,25 @@ body{
     width:45%;
     margin: 10px;
  }
-#rosterTitle{
+#rosterTitle {
     color: #9d9d9d;
+}
+.loginBox {
+  background-color: white;
+  max-width: 860px;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginBox form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+th, td {
+  color: white;
+  padding-right: 10%;
 }
 /*==============4.FOOTER=================*/
 .footer {
