@@ -1,7 +1,7 @@
 <?php include "header.php" ?>
-<div class="loginBox">
-  <form action="" method="post" name="userRegistration" id="userRegistration">
-    <h1>Register a new account</h1>
+<div class="main-registrationPage">
+  <form action="" method="post" name="userRegistration" id="userRegistration" class="registrationPage-form">
+    <h1 class="form-mainHeading">Register a new account</h1>
     <label for="username">Username: </label>
     <span class="userRegistration__errorMessage_hidden" id="usernameError"></span>
     <input type="text" name="username"/>
