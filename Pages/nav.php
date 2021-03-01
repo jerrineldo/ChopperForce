@@ -11,7 +11,7 @@
             <li><a href="#">Data</a></li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Personnel</a></li>
+                    <li><a href="companyList.php">Personnel</a></li>
                     <li><a href="#">FRG</a></li>
                     <li><a href="#">Alert Roster</a></li>
                     <li><a href="#">OER Report</a></li>
@@ -22,7 +22,7 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+            <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span>Register</a></li>
             <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
     </div>
