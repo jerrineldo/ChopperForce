@@ -1,0 +1,12 @@
+/*CSS styles Added By Praveen*/
+.default{
+    color: #fff;
+}
+
+tr:nth-child(odd) td{
+    background-color: #333333;
+}
+
+tr:nth-child(even) td{
+    background-color: #222222;
+}
