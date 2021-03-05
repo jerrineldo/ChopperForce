@@ -1,13 +1,14 @@
 
-<div class="container">
-    <form class="form-inline">
+<div class="container frg">
+    <h2 class="report-title">Family Readiness Group Report Page</h2>
+    <form class="form-inline form__frg-search">
         <input type="text" class="form-control" id="frg_search" placeholder="Search By Name">
         <button type="submit" class="btn btn-success">Search</button>
     </form>
-    <table class="table table-dark table-striped table-bordered table-responsive">
+    <table class="table table-dark table-striped table-responsive tbl__frg">
         <thead>
             <tr>
-                <th scope="col">Personnel Id</th>
+                <th scope="col">Personnel ID</th>
                 <th scope="col">Full Name</th>
                 <th scope="col">Rank</th>
                 <th scope="col">Family Member Name</th>
@@ -34,10 +35,10 @@
                 <td>No</td>
                 <td>N/A</td>
                 <td>
-                    <button class="btn btn-info">Update</button>
+                    <a href="frg_update.php" class="btn btn-info">Update</a>
                 </td>
                 <td>
-                    <button class="btn btn-danger">Delete</button>
+                    <a class="btn btn-danger">Delete</a>
                 </td>
             </tr>
             <tr>
@@ -52,13 +53,12 @@
                 <td>No</td>
                 <td>N/A</td>
                 <td>
-                    <button class="btn btn-info">Update</button>
+                    <a href="frg_update.php" class="btn btn-info">Update</a>
                 </td>
                 <td>
-                    <button class="btn btn-danger">Delete</button>
+                    <a class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         </tbody>
     </table>
-
 </div>
