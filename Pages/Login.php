@@ -1,5 +1,6 @@
 <style>
 <?php include '../stylesheets/cff.css' ?>
+<?php include '../stylesheets/login.css' ?>
 </style>
 
 <script src="https://kit.fontawesome.com/ba2fdf1c36.js" crossorigin="anonymous"></script>

@@ -12,7 +12,7 @@
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="companyList.php">Personnel</a></li>
-                    <li><a href="#">FRG</a></li>
+                    <li><a href="frg.php">FRG</a></li>
                     <li><a href="#">Alert Roster</a></li>
                     <li><a href="#">OER Report</a></li>
                     <li><a href="#">NCOER Report</a></li>
