@@ -1,7 +1,7 @@
 
 <div class="container">
-    <form class="form">
-        <input type="text" class="form-control" id="frg_search" placeholder="Search By Personnel ID or Name">
+    <form class="form-inline">
+        <input type="text" class="form-control" id="frg_search" placeholder="Search By Name">
         <button type="submit" class="btn btn-success">Search</button>
     </form>
     <table class="table table-dark table-striped table-bordered table-responsive">
