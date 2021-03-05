@@ -55,10 +55,10 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-8">
-                <a type="submit" class="btn btn-success col-md-12">Update</a>
+                <a class="btn btn-success col-md-12">Update</a>
             </div>
             <div class="form-group col-md-4">
-                <a type="submit" class="btn btn-outline-success col-md-12" href="frg.php">Go Back</a>
+                <a href="frg.php" class="btn btn-primary col-md-12" >Go Back</a>
             </div>
         </div>
     </form>
