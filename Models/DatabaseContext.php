@@ -1,5 +1,5 @@
 <?php 
-    class databaseContext {
+    class DatabaseContext {
         // Enter own information for database
         private static $user = "";
         private static $password = 'root';
