@@ -10,7 +10,7 @@ Company List, DashBoard : Luis Botello
 
 DataEnteryform : Journey Gault
 
-FRG Report & update Page : Praveen Ramkumar 
+family-contact & update, weapons, weapons-qualificaion & update, emergency contact & update : Praveen Ramkumar 
 
 Working DB Doc: https://docs.google.com/document/d/1BKi_8a2_UQ4vCzPfb7ISN07E7YIIlbKxCc0gFFbA2Tg/edit?usp=sharing
 
