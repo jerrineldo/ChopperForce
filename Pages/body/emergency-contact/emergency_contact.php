@@ -26,12 +26,12 @@
                 <td>4589862563</td>
                 <td>
                     <form action="update_contact.php" method="post">
-                        <input type="submit" class="button btn btn-primary" name="updateOER" value="Update"/>
+                        <input type="submit" class="button btn btn-primary" name="updateEC" value="Update"/>
                     </form>
                 </td>
                 <td>
                     <form action="" method="post">
-                        <input type="submit" class="button btn btn-danger" name="deleteOER" value="Delete"/>
+                        <input type="submit" class="button btn btn-danger" name="deleteEC" value="Delete"/>
                     </form>
                 </td>
             </tr>
@@ -43,12 +43,12 @@
                 <td>6589874589</td>
                 <td>
                     <form action="update_contact.php" method="post">
-                        <input type="submit" class="button btn btn-primary" name="updateOER" value="Update"/>
+                        <input type="submit" class="button btn btn-primary" name="updateEC" value="Update"/>
                     </form>
                 </td>
                 <td>
                     <form action="" method="post">
-                        <input type="submit" class="button btn btn-danger" name="deleteOER" value="Delete"/>
+                        <input type="submit" class="button btn btn-danger" name="deleteEC" value="Delete"/>
                     </form>
                 </td>
             </tr>
