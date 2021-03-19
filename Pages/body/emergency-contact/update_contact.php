@@ -11,11 +11,11 @@
             <input type="text" class="form-control" id="emg_contact_fName">
         </div>
         <div class="form-group">
-            <label for="emg_contact_fName">Last Name</label>
+            <label for="emg_contact_lastName">Last Name</label>
             <input type="text" class="form-control" id="emg_contact_lastName">
         </div>
         <div class="form-group">
-            <label for="emg_contact_fName">Phone</label>
+            <label for="emg_contact_phone">Phone</label>
             <input type="text" class="form-control" id="emg_contact_phone" >
         </div>
 

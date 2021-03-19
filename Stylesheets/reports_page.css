@@ -39,11 +39,6 @@ td {
 	border-top: 2px solid #9d9d9d;
 }
 
-.back-button {
-	position: absolute;
-	margin-top: 1em;
-}
-
 .center-form {
 	margin: 0 auto;
 	width: 60%; /* value of your choice which suits your alignment */

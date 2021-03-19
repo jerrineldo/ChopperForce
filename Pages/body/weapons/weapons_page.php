@@ -11,6 +11,7 @@
                 <th scope="col">Weapon Id</th>
                 <th scope="col">Weapon Name</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -18,11 +19,21 @@
             <td>001</td>
             <td>MR1</td>
             <td><a href="weapons_qualification.php?id=001" class="btn btn-info">View Qualified Soldiers</a></td>
+            <td>
+                <form action="" method="post">
+                    <input type="submit" class="button btn btn-danger" name="deleteWeapon" value="Delete"/>
+                </form>
+            </td>
         </tr>
         <tr>
             <td>002</td>
             <td>MR3</td>
-            <td><a href="weapons_qualification.php?id=002" class="btn btn-info">View Qualified Soldiers</a></td>
+            <td><a href="weapons_qualification.php?id=001" class="btn btn-info">View Qualified Soldiers</a></td>
+            <td>
+                <form action="" method="post">
+                    <input type="submit" class="button btn btn-danger" name="deleteWeapon" value="Delete"/>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>

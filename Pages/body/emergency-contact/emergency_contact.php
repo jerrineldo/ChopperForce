@@ -14,6 +14,7 @@
                 <th scope="col">Contact Person Name</th>
                 <th scope="col">Phone</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         <thead>
         <tbody>
@@ -23,7 +24,16 @@
                 <td>John Doe</td>
                 <td>Liza Park, I</td>
                 <td>4589862563</td>
-                <td><a href="update_contact.php?id=001" class="btn btn-info">Update Contact</a></td>
+                <td>
+                    <form action="update_contact.php" method="post">
+                        <input type="submit" class="button btn btn-primary" name="updateOER" value="Update"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="" method="post">
+                        <input type="submit" class="button btn btn-danger" name="deleteOER" value="Delete"/>
+                    </form>
+                </td>
             </tr>
             <tr>
                 <td>LQ</td>
@@ -31,7 +41,16 @@
                 <td>Bran Min</td>
                 <td>Bran Henry, F</td>
                 <td>6589874589</td>
-                <td><a href="update_contact.php?id=001" class="btn btn-info">Update Contact</a></td>
+                <td>
+                    <form action="update_contact.php" method="post">
+                        <input type="submit" class="button btn btn-primary" name="updateOER" value="Update"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="" method="post">
+                        <input type="submit" class="button btn btn-danger" name="deleteOER" value="Delete"/>
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>
