@@ -1,18 +1,18 @@
 <?php include "header.php"; include "nav.php"; ?>
-<div class="main-companytable">
-  <table>
+<div class="m-1">
+  <table class="table table-bordered tbl">
     <thead>
       <tr>
-        <th>MOS</th>
-        <th>Rank</th>
-        <th>Last Name</th>
-        <th>First Name</th>
-        <th>M</th>
-        <th>SSN</th>
-        <th>DOD ID</th>
-        <th>Bloodtype</th>
-        <th>DOB</th>
-        <th>Address</th>
+        <th scope="col">MOS</th>
+        <th scope="col">Rank</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">First Name</th>
+        <th scope="col">M</th>
+        <th scope="col">SSN</th>
+        <th scope="col">DOD ID</th>
+        <th scope="col">Bloodtype</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Address</th>
       </tr>
     </thead>
     <tbody>
