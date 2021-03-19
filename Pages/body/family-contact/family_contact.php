@@ -18,6 +18,8 @@
                 <th scope="col">Family Member Mailing Address</th>
                 <th scope="col">Preference Form</th>
                 <th scope="col">Physical Location(if Different)</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         <thead>
         <tbody>
@@ -32,6 +34,16 @@
                 <td>330, Bitboost, Tucson, AZ</td>
                 <td>No</td>
                 <td>N/A</td>
+                <td>
+                    <form action="fc_update.php" method="post">
+                        <input type="submit" class="button btn btn-primary" name="updateFC" value="Update"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="" method="post">
+                        <input type="submit" class="button btn btn-danger" name="deleteFC" value="Delete"/>
+                    </form>
+                </td>
             </tr>
             <tr>
                 <td>002</td>
@@ -44,6 +56,16 @@
                 <td>456, Main St, Seattle, WA</td>
                 <td>No</td>
                 <td>N/A</td>
+                <td>
+                    <form action="fc_update.php" method="post">
+                        <input type="submit" class="button btn btn-primary" name="updateFC" value="Update"/>
+                    </form>
+                </td>
+                <td>
+                    <form action="" method="post">
+                        <input type="submit" class="button btn btn-danger" name="deleteFC" value="Delete"/>
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>

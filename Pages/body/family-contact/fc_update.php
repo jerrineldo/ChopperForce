@@ -1,6 +1,6 @@
 
 <div class="container frg">
-    <h2 class="report-title">FRG Update Page</h2>
+    <h2 class="report-title">Family Contact Update Page</h2>
     <form method="POST" >
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -58,7 +58,7 @@
                 <a class="btn btn-success col-md-12">Update</a>
             </div>
             <div class="form-group col-md-4">
-                <a href="frg.php" class="btn btn-primary col-md-12" >Go Back</a>
+                <a href="family_contact.php" class="btn btn-primary col-md-12" >Go Back</a>
             </div>
         </div>
     </form>

@@ -8,6 +8,6 @@
 </style>
 <?php 
     require_once 'nav.php';
-    require_once './body/family-contact/frg_update.php';
+    require_once './body/weapons/wq_update.php';
     require_once 'footer.php'; 
 ?>
