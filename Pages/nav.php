@@ -13,11 +13,11 @@
                 <ul class="dropdown-menu">
                     <li><a href="companyList.php">Personnel</a></li>
                     <li><a href="frg.php">FRG</a></li>
-                    <li><a href="#">Alert Roster</a></li>
+                    <li><a href="alert_roster.php">Alert Roster</a></li>
                     <li><a href="#">OER Report</a></li>
                     <li><a href="#">NCOER Report</a></li>
                     <li><a href="#">ACFT</a></li>
-                    <li><a href="#">Weapons Qualification</a></li>
+                    <li><a href="weapons.php">Weapons</a></li>
                 </ul>
             </li>
         </ul>
