@@ -27,6 +27,18 @@
         <td>A+</td>
         <td>12-12-1989</td>
         <td>ENCRYPTED</td>
+        <td>
+            <form action="" method="post">
+                <input type="hidden" name="id" value=""/>
+                <input type="submit" class="button btn btn-primary" name="updateSoldier" value="Update"/>
+            </form>
+        </td>
+        <td>
+            <form action="" method="post">
+                <input type="hidden" name="id" value=""/>
+                <input type="submit" class="button btn btn-danger" name="deleteSoldier" value="Delete"/>
+            </form>
+        </td>
       </tr>
     </tbody>
   </table>
