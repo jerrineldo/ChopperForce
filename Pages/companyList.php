@@ -1,4 +1,4 @@
-<?php include "header.php"; ?>
+<?php include "header.php"; include "nav.php"; ?>
 <div class="main-companytable">
   <table>
     <thead>
