@@ -1,4 +1,5 @@
 <?php include "header.php"; include "nav.php"; ?>
+<link rel="stylesheet" href="../Stylesheets/reports_page.css">
 <div class="m-1">
   <table class="table table-bordered tbl">
     <thead>
