@@ -8,6 +8,6 @@
 </style>
 <?php 
     require_once 'nav.php';
-    require_once './body/alert-roster/alert_roster_page.php';
+    require_once './body/family-contact/family_contact.php';
     require_once 'footer.php'; 
 ?>

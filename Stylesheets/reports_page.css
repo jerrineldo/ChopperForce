@@ -43,3 +43,12 @@ td {
 	position: absolute;
 	margin-top: 1em;
 }
+
+.center-form {
+	margin: 0 auto;
+	width: 60%; /* value of your choice which suits your alignment */
+}
+
+.center-form label {
+	color: white;
+}

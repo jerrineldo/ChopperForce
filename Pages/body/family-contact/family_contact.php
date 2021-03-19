@@ -1,6 +1,6 @@
 
 <div class="container report_page">
-    <h2 class="report-title">Family Readiness Group Report Page</h2>
+    <h2 class="report-title">Family Contacts Report</h2>
     <form class="form-inline report_page-search">
         <input type="text" class="form-control" id="frg_search" placeholder="Search By Name">
         <input type="submit" value="Search" class="btn btn-success"/>
