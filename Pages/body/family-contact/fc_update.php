@@ -4,10 +4,10 @@
     <form method="POST" >
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="frg_fName" placeholder="First Name">
+                <input type="text" class="form-control" id="fc_fName" placeholder="First Name">
             </div>
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="frg_lastName" placeholder="Last Name">
+                <input type="text" class="form-control" id="fc_lastName" placeholder="Last Name">
             </div>
         </div>
         <div class="form-group col-md-12">
@@ -22,23 +22,23 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" id="frg_phone" placeholder="Phone">
+                <input type="text" class="form-control" id="fc_phone" placeholder="Phone">
             </div>
             <div class="form-group col-md-8">
-                <input type="email" class="form-control" id="frg_email" placeholder="Email">
+                <input type="email" class="form-control" id="fc_email" placeholder="Email">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12">
-                <input type="text" class="form-control" id="frg_address" placeholder="Address">
+                <input type="text" class="form-control" id="fc_address" placeholder="Address">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-8">
-                <input type="text" class="form-control" id="frg_city" placeholder="City">
+                <input type="text" class="form-control" id="fc_city" placeholder="City">
             </div>
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" id="frg_state" placeholder="State">
+                <input type="text" class="form-control" id="fc_state" placeholder="State">
             </div>
         </div>
         <div class="form-row">
@@ -50,7 +50,7 @@
                 </select>
             </div>
             <div class="form-group col-md-7">
-                <input type="text" class="form-control" id="frg_location" placeholder="Physical Location">
+                <input type="text" class="form-control" id="fc_location" placeholder="Physical Location">
             </div>
         </div>
         <div class="form-row">
