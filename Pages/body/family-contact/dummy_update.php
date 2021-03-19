@@ -1,6 +1,6 @@
 
 <div class="container frg">
-    <h2 class="report-title">Family Readiness Group Update Page</h2>
+    <h2 class="report-title">FRG Update Page</h2>
     <form method="POST" >
         <div class="form-row">
             <div class="form-group col-md-6">
