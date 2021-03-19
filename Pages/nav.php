@@ -7,7 +7,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li><a href="home.php">Home</a></li>
-            <li><a href="#">Add New</a></li>
+            <li><a href="data_entery_form.php">Add New</a></li>
             <li><a href="#">Data</a></li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -18,6 +18,8 @@
                     <li><a href="ncoer_report.php">NCOER Report</a></li>
                     <li><a href="#">ACFT</a></li>
                     <li><a href="weapons.php">Weapons</a></li>
+                    <li><a href="duties_report_list.php">Qualifications/Duties Report</a></li>
+                    <li><a href="award_report_list.php">Awards Report</a></li>
                 </ul>
             </li>
         </ul>

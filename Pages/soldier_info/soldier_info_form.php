@@ -1,16 +1,10 @@
-
 <?php
-
-require 'header.php';
-require 'nav.php';
-require '../stylesheets/form.css';
-
 
 ?>
 <!--
 Form By Journey
     !-->
-<body>
+    <body>
 <link rel="stylesheet" href="../Stylesheets/form.css">
 
 <h1 id="color"class="color">Please Enter Information For New Recruit</h1>
@@ -221,11 +215,3 @@ Form By Journey
 
         </form>
 </body>
-<?php
-require 'footer.php';
-?>
-<!-- User Upload Page(Documents, Awards, qualifications)(Journey Gault)
-C.User can create new records
-R.User can read previous records`
-U.User can update records
-D.Admin can delete records. -->
