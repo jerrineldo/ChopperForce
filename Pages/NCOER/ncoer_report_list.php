@@ -7,7 +7,7 @@
 
 
 <body>
-<p class="h1 text-center" id="OERTitle">NCOER Report</p>
+<h2 class="report-title">NCOER Report</h2>
 <div class="m-1">
     <!--    Displaying Data in Table-->
     <table class="table table-bordered tbl">
