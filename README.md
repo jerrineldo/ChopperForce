@@ -2,7 +2,7 @@
 An HR application developed for the us army.
 
 ## Interfaces
-**Asia Levesque Gault:** Homepage, Header, Nav, Footer
+**Asia Levesque Gault:** Homepage, Header, Nav, Footer, OER, NCOER
 
 **Jerrin Eldo Mazhuvancherry:** Login
 
