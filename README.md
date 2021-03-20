@@ -2,14 +2,15 @@
 An HR application developed for the us army.
 
 ## Interfaces
-Homepage, Header, Nav, Footer : Asia Levesque Gault
+<strong>Asia Levesque Gault:</strong> Homepage, Header, Nav, Footer
 
-Login : Jerrin Eldo Mazhuvancherry
+Jerrin Eldo Mazhuvancherry: Login
 
-Company List, DashBoard : Luis Botello 
+Luis Botello : Company List, DashBoard 
 
-DataEnteryform : Journey Gault
+Journey Gault: DataEnteryform 
 
-family-contact & update, weapons, weapons-qualificaion & update, emergency contact & update : Praveen Ramkumar 
+Praveen Ramkumar: family-contact & update, weapons, weapons-qualificaion & update, emergency contact & update
+
 We have created a shared MySQL Db.
 ![DB](https://github.com/2021-Winter-HTTP-5202-A/ChopperForceFive/blob/main/Images/Capture.PNG)
