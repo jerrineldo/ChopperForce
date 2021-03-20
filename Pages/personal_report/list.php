@@ -1,5 +1,5 @@
-<?php include "header.php"; include "nav.php"; ?>
-<link rel="stylesheet" href="../Stylesheets/reports_page.css">
+
+<h2 class="report-title">Personnel Report</h2>
 <div class="m-1">
   <table class="table table-bordered tbl">
     <thead>
@@ -43,5 +43,5 @@
       </tr>
     </tbody>
   </table>
+  <a href="" id="Personnel_Add" class="btn btn-success btn-lg float-right">Add Soldier</a>
 </div>
-<?php include "footer.php"; ?>
