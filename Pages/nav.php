@@ -11,7 +11,7 @@
             <li><a href="#">Data</a></li>
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="companyList.php">Personnel</a></li>
+                    <li><a href="personnel_report.php">Personnel</a></li>
                     <li><a href="family_contact.php">Family Contacts</a></li>
                     <li><a href="emergency_contact.php">Emergency Contact</a></li>
                     <li><a href="oer_report.php">OER Report</a></li>
@@ -19,6 +19,7 @@
                     <li><a href="#">ACFT</a></li>
                     <li><a href="weapons.php">Weapons</a></li>
                     <li><a href="duties_report_list.php">Qualifications/Duties Report</a></li>
+                    <li><a href="physicalFitness.php">Physical Fitness Report</a></li>
                     <li><a href="award_report_list.php">Awards Report</a></li>
                 </ul>
             </li>
