@@ -1,4 +1,14 @@
+<?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
+require_once "../../Models/Soldier.php";
+$db = DatabaseContext::dbConnect();
+
+$PersonalDto = new Personnel();
+$CompanyList = $PersonalDto->getAllPersonnels($db);
+?>
 <div class="container personnelreport">
   <h2 class="report-title">Personnel Report</h2>
   <form class="form-inline personnelreport-search">
@@ -13,7 +23,6 @@
           <th scope="col">Rank</th>
           <th scope="col">Last Name</th>
           <th scope="col">First Name</th>
-          <th scope="col">M</th>
           <th scope="col">SSN</th>
           <th scope="col">DOD ID</th>
           <th scope="col">Bloodtype</th>
@@ -24,30 +33,31 @@
         </tr>
       </thead>
       <tbody>
+      <?php foreach($CompanyList as $Soldier) {?>
         <tr>
-          <td>15B</td>
-          <td>CPT</td>
-          <td>Elliot</td>
-          <td>Tyler</td>
-          <td>J</td>
-          <td>ENCRYPTED</td>
-          <td>ENCRYPTED</td>
-          <td>A+</td>
-          <td>12-12-1989</td>
-          <td>ENCRYPTED</td>
+          <td><?= $Soldier->mos ?></td>
+          <td><?= $Soldier->rank ?></td>
+          <td><?= $Soldier->first_name ?></td>
+          <td><?= $Soldier->last_name ?></td>
+          <td><?= $Soldier->ssn //Should this be plaintext? ?></td>
+          <td><?= $Soldier->dod_id ?></td>
+          <td><?= $Soldier->blood_type ?></td>
+          <td><?= $Soldier->dob ?></td>
+          <td><?= $Soldier->address ?></td>
           <td>
-              <form action="personnel_update.php " method="post">
+              <form action="personnel_update.php/<?=$Soldier->id?>" method="post">
                   <input type="hidden" name="id" value=""/>
                   <input type="submit" class="button btn btn-primary" name="updateSoldier" value="Update"/>
               </form>
           </td>
           <td>
-              <form action="" method="post">
+              <form action="delete_confirm/<?=$Soldier->id?>" method="post">
                   <input type="hidden" name="id" value=""/>
                   <input type="submit" class="button btn btn-danger" name="deleteSoldier" value="Delete"/>
               </form>
           </td>
         </tr>
+        <?php } ?>
       </tbody>
     </table>
     <a href="" id="Personnel_Add" class="btn btn-success btn-lg float-right">Add Soldier</a>
