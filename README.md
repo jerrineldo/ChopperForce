@@ -2,9 +2,9 @@
 An HR application developed for the us army.
 ## To do
 - [x] Setup database
-- [] Complete features
-- [] Organize file structure
-- [] Testing
+- [ ] Complete features
+- [ ] Organize file structure
+- [ ] Testing
 
 ## Interfaces
 **Asia Levesque Gault:** Homepage, Header, Nav, Footer, OER, NCOER
