@@ -2,7 +2,30 @@
 
 class Personnel
 {
-    
+    private $id;
+    private $mos;
+    private $rank;
+    private $first_name;
+    private $last_name;
+    private $ssn;
+    private $dod_id;
+    private $dob;
+    private $blood_type;
+    private $address;
+
+    public function __construct($id=null, $mos=null, $rank=null, $first_name=null, $last_name=null, $ssn=null, $dod_id=null,$dob=null,$blood_type=null,$address=null){
+        $this->id = $id;
+        $this->mos = $mos;
+        $this->rank = $rank;
+        $this->first_name = $first_name;
+        $this->last_name = $last_name;
+        $this->ssn = $ssn;
+        $this->dod_id = $dod_id;
+        $this->dob = $dob;
+        $this->blood_type = $blood_type;
+        $this->address = $address;
+    }
+
     public function getPersonnelById($id, $db){
         $sql = "SELECT * FROM user where id = :personnel_id";//Possible error
         $pst = $db->prepare($sql);
