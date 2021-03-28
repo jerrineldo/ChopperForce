@@ -57,7 +57,7 @@ class Personnel
         return $this->address;
     }
 
-    public function getPersonnelById($id, $db){
+    public static function getPersonnelById($id, $db){
         $sql = "SELECT * FROM user where id = :personnel_id";//Possible error
         $pst = $db->prepare($sql);
         $pst->bindParam(':personnel_id', $id);
@@ -97,31 +97,42 @@ class Personnel
         $count = $pst->execute();
         return $count;
     }
-    public function updatePersonnel(Personnel $soldier) {
+    public static function updatePersonnel(Personnel $soldier,$db) {
+        $id = $soldier->getId();
+        $mos = $soldier->getMos();
+        $rank = $soldier->getRank();
+        $first_name = $soldier->getFname();
+        $last_name = $soldier->getLname();
+        $ssn = $soldier->getSsn();
+        $dod_id = $soldier->getDodId();
+        $dob = $soldier->getDob();
+        $blood_type = $soldier->getBloodType();
+        $address = $soldier->getAddress();
+
         $sql = "Update user
                 set 
                 mos = :mos,
                 rank = :rank,
-                first_name = :first_name
+                first_name = :first_name,
                 last_name = :last_name,
-                ssn = :ssn
+                ssn = :ssn,
                 dod_id = :dod_id,
-                dob = :dob
+                dob = :dob,
                 blood_type = :blood_type,
                 address = :address
                 WHERE id = :personnel_id";
         $pst =  $db->prepare($sql);
 
-        $pst->bindParam(':mos', $soldier->getMos());
-        $pst->bindParam(':rank', $soldier->getRank());
-        $pst->bindParam(':first_name', $soldier->getFname());
-        $pst->bindParam(':last_name', $soldier->getLname());
-        $pst->bindParam(':ssn', $soldier->getSsn());
-        $pst->bindParam(':dod_id', $soldier->getDodId());
-        $pst->bindParam(':dob', $soldier->getDob());
-        $pst->bindParam(':blood_type', $soldier->getBloodType());
-        $pst->bindParam(':address', $soldier->getAddress());
-        $pst->bindParam(':blood_type', $soldier->getId());
+        $pst->bindParam(':mos', $mos);
+        $pst->bindParam(':rank', $rank);
+        $pst->bindParam(':first_name', $first_name);
+        $pst->bindParam(':last_name', $last_name);
+        $pst->bindParam(':ssn', $ssn);
+        $pst->bindParam(':dod_id', $dod_id);
+        $pst->bindParam(':dob', $dob);
+        $pst->bindParam(':blood_type', $blood_type);
+        $pst->bindParam(':address', $address);
+        $pst->bindParam(':personnel_id', $id);
 
         $count = $pst->execute();
         return $count;
