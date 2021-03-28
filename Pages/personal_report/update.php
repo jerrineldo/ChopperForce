@@ -9,15 +9,21 @@ $soldier_id = $_GET["id"];
 $PersonalDto = new Personnel();
 $selected_soldier = $PersonalDto->getPersonnelById($soldier_id, $db);
 var_dump($selected_soldier);
+if (isset($_POST["updateConfirm"])) {
+    //Might change this to entering details into the class directly
+    $mos = $_POST["mos"];
+    //$rank = 
+    $selected_soldier->updatePersonnel();
+}
 ?>
 <div class="container">
     <h2 class="report-title">Personnel Report - Update</h2>
-    <form method="POST" name="personnel-update">
+    <form method="POST" name="personnel-update" action="">
     <input type="hidden" name="id" value="<?=$soldier_id?>">
         <div class="form-row">
           <div class="form-group col-md-6">
                 <label class="label label-default" for="personnel-update_MOS">MOS:</label>
-                <input type="text" class="form-control" id="personnel-update_MOS" placeholder="MOS" value="<?=$selected_soldier->mos?>">
+                <input type="text" class="form-control" id="personnel-update_MOS" placeholder="MOS" name="mos" value="<?=$selected_soldier->mos?>">
           </div>
           <div class="form-group col-md-6">
                 <label class="label label-default" for="personnel-update_Rank">Rank:</label>
@@ -62,7 +68,7 @@ var_dump($selected_soldier);
         </div>
         <div class="form-row">
             <div class="form-group col-md-8">
-                <a class="btn btn-success col-md-12">Update</a>
+                <input type="submit" value="Update" name="updateConfirm" class="btn btn-success col-md-12">
             </div>
             <div class="form-group col-md-4">
                 <a href="../personnel_report.php" class="btn btn-primary col-md-12" >Go Back</a>
