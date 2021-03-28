@@ -1,6 +1,5 @@
 <?php
-require_once "../Models/OER.php";
-require_once "../Models/DatabaseContext.php";
+
 
 $dbcon= DatabaseContext::dbConnect();//DatabaseContext
 $s = new Oer();
