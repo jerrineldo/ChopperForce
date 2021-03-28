@@ -25,6 +25,37 @@ class Personnel
         $this->blood_type = $blood_type;
         $this->address = $address;
     }
+    //Getters
+    public function getId() {
+        return $this->id;
+    }
+    public function getMos() {
+        return $this->mos;
+    }
+    public function getRank() {
+        return $this->rank;
+    }
+    public function getFname() {
+        return $this->first_name;
+    }
+    public function getLname() {
+        return $this->last_name;
+    }
+    public function getSsn() {
+        return $this->ssn;
+    }
+    public function getDodId() {
+        return $this->dod_id;
+    }
+    public function getDob() {
+        return $this->dob;
+    }
+    public function getBloodType() {
+        return $this->blood_type;
+    }
+    public function getAddress() {
+        return $this->address;
+    }
 
     public function getPersonnelById($id, $db){
         $sql = "SELECT * FROM user where id = :personnel_id";//Possible error
@@ -66,7 +97,7 @@ class Personnel
         $count = $pst->execute();
         return $count;
     }
-    public function updatePersonnel($id,$mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address){
+    public function updatePersonnel(Personnel $soldier) {
         $sql = "Update user
                 set 
                 mos = :mos,
@@ -80,10 +111,18 @@ class Personnel
                 address = :address
                 WHERE id = :personnel_id";
         $pst =  $db->prepare($sql);
-        $pst->bindParam(':make', $make);
-        $pst->bindParam(':model', $model);
-        $pst->bindParam(':year', $year);
-        $pst->bindParam(':personnel_id', $id);
+
+        $pst->bindParam(':mos', $soldier->getMos());
+        $pst->bindParam(':rank', $soldier->getRank());
+        $pst->bindParam(':first_name', $soldier->getFname());
+        $pst->bindParam(':last_name', $soldier->getLname());
+        $pst->bindParam(':ssn', $soldier->getSsn());
+        $pst->bindParam(':dod_id', $soldier->getDodId());
+        $pst->bindParam(':dob', $soldier->getDob());
+        $pst->bindParam(':blood_type', $soldier->getBloodType());
+        $pst->bindParam(':address', $soldier->getAddress());
+        $pst->bindParam(':blood_type', $soldier->getId());
+
         $count = $pst->execute();
         return $count;
     }
