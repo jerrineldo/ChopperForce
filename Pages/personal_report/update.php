@@ -14,7 +14,7 @@ if (isset($_POST["updateConfirm"])) {
 
     $response = $updated_soldier->updatePersonnel($updated_soldier, $db);
     if(response) {
-        ?><script>window.location.href = "../personnel_report.php";</script><?php //Redirect to list after a successful update
+        ?><script>window.location.href = "./personnel_report.php";</script><?php //Redirect to list after a successful update
     }
 }
 ?>
@@ -73,7 +73,7 @@ if (isset($_POST["updateConfirm"])) {
                 <input type="submit" value="Update" name="updateConfirm" class="btn btn-success col-md-12">
             </div>
             <div class="form-group col-md-4">
-                <a href="../personnel_report.php" class="btn btn-primary col-md-12" >Go Back</a>
+                <a href="./personnel_report.php" class="btn btn-primary col-md-12" >Go Back</a>
             </div>
         </div>
     </form>
