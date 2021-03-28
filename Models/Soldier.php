@@ -4,14 +4,14 @@ class Personnel
 {
     
     public function getPersonnelById($id, $db){
-        $sql = "SELECT * FROM personnel where id = :personnel_id";//Possible error
+        $sql = "SELECT * FROM user where id = :personnel_id";//Possible error
         $pst = $db->prepare($sql);
         $pst->bindParam(':personnel_id', $id);
         $pst->execute();
         return $pst->fetch(\PDO::FETCH_OBJ);
     }
     public function getAllPersonnels($dbcon){
-        $sql = "SELECT * FROM personnel";
+        $sql = "SELECT * FROM user";
         $pdostm = $dbcon->prepare($sql);
         $pdostm->execute();
         $personnels = $pdostm->fetchAll(\PDO::FETCH_OBJ);
@@ -19,7 +19,7 @@ class Personnel
     }
     public function addPersonnel($mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address,$db)
     {
-        $sql = "INSERT INTO persnonel (mos, rank, first_name, last_name, ssn, dod_id,dob,blood_type,address) 
+        $sql = "INSERT INTO user (mos, rank, first_name, last_name, ssn, dod_id,dob,blood_type,address) 
               VALUES (:model, :year, :make) ";
         $pst = $db->prepare($sql);
 
@@ -37,14 +37,14 @@ class Personnel
         return $count;
     }
     public function deletePersonnel($id, $db){
-        $sql = "DELETE FROM personnel WHERE id = :id";
+        $sql = "DELETE FROM user WHERE id = :id";
         $pst = $db->prepare($sql);
         $pst->bindParam(':id', $id);
         $count = $pst->execute();
         return $count;
     }
     public function updatePersonnel($id,$mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address){
-        $sql = "Update personnel
+        $sql = "Update user
                 set 
                 mos = :mos,
                 rank = :rank,
