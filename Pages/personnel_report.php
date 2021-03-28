@@ -4,7 +4,8 @@
 ?>
 <link rel="stylesheet" href="../Stylesheets/reports_page.css">
 
-<?php 
-  require_once './personal_report/list.php';
+<?php
+  require_once '../Models/Soldier.php';
+  include './personal_report/list.php';
   include "footer.php"; 
 ?>

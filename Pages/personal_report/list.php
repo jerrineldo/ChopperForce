@@ -3,7 +3,6 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-require_once "../../Models/Soldier.php";
 $db = DatabaseContext::dbConnect();
 
 $PersonalDto = new Personnel();
@@ -45,7 +44,7 @@ $CompanyList = $PersonalDto->getAllPersonnels($db);
           <td><?= $Soldier->dob ?></td>
           <td><?= $Soldier->address ?></td>
           <td>
-              <form action="personnel_update.php/<?=$Soldier->id?>" method="post">
+              <form action="update.php/<?=$Soldier->id?>" method="post">
                   <input type="hidden" name="id" value=""/>
                   <input type="submit" class="button btn btn-primary" name="updateSoldier" value="Update"/>
               </form>
@@ -60,6 +59,6 @@ $CompanyList = $PersonalDto->getAllPersonnels($db);
         <?php } ?>
       </tbody>
     </table>
-    <a href="" id="Personnel_Add" class="btn btn-success btn-lg float-right">Add Soldier</a>
+    <a href="../soldier_info/soldier_info_form.php" id="Personnel_Add" class="btn btn-success btn-lg float-right">Add Soldier</a>
   </div>
 </div>
