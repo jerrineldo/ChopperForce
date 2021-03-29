@@ -1,7 +1,12 @@
 <?php
 
-class Personnel
+class User
 {
+<<<<<<< HEAD:Models/User.php
+    
+    public function getUserById($id, $db){
+        $sql = "SELECT * FROM user where id = :id";//Possible error
+=======
     private $id;
     private $mos;
     private $rank;
@@ -59,19 +64,24 @@ class Personnel
 
     public static function getPersonnelById($id, $db){
         $sql = "SELECT * FROM user where id = :personnel_id";//Possible error
+>>>>>>> e49a41de6bd3fbc7d6731de99a3ef19ad4b5d33f:Models/Soldier.php
         $pst = $db->prepare($sql);
-        $pst->bindParam(':personnel_id', $id);
+        $pst->bindParam(':user_id', $id);
         $pst->execute();
         return $pst->fetch(\PDO::FETCH_OBJ);
     }
+<<<<<<< HEAD:Models/User.php
+    public function getAllUsers($dbcon){
+=======
     public function getAllPersonnels($dbcon){
+>>>>>>> e49a41de6bd3fbc7d6731de99a3ef19ad4b5d33f:Models/Soldier.php
         $sql = "SELECT * FROM user";
         $pdostm = $dbcon->prepare($sql);
         $pdostm->execute();
-        $personnels = $pdostm->fetchAll(\PDO::FETCH_OBJ);
-        return $personnels;
+        $users = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+        return $users;
     }
-    public function addPersonnel($mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address,$db)
+    public function addUser($mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address,$db)
     {
         $sql = "INSERT INTO user (mos, rank, first_name, last_name, ssn, dod_id,dob,blood_type,address) 
               VALUES (:model, :year, :make) ";
@@ -90,13 +100,20 @@ class Personnel
         $count = $pst->execute();
         return $count;
     }
+<<<<<<< HEAD:Models/User.php
+    public function deleteUser($id, $db){
+=======
     public function deletePersonnel($id, $db){
+>>>>>>> e49a41de6bd3fbc7d6731de99a3ef19ad4b5d33f:Models/Soldier.php
         $sql = "DELETE FROM user WHERE id = :id";
         $pst = $db->prepare($sql);
         $pst->bindParam(':id', $id);
         $count = $pst->execute();
         return $count;
     }
+<<<<<<< HEAD:Models/User.php
+    public function updateUser($id,$mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address){
+=======
     public static function updatePersonnel(Personnel $soldier,$db) {
         $id = $soldier->getId();
         $mos = $soldier->getMos();
@@ -109,6 +126,7 @@ class Personnel
         $blood_type = $soldier->getBloodType();
         $address = $soldier->getAddress();
 
+>>>>>>> e49a41de6bd3fbc7d6731de99a3ef19ad4b5d33f:Models/Soldier.php
         $sql = "Update user
                 set 
                 mos = :mos,
@@ -120,9 +138,13 @@ class Personnel
                 dob = :dob,
                 blood_type = :blood_type,
                 address = :address
+<<<<<<< HEAD:Models/User.php
+                WHERE id = :id";
+=======
                 WHERE id = :personnel_id";
         $pst =  $db->prepare($sql);
 
+>>>>>>> e49a41de6bd3fbc7d6731de99a3ef19ad4b5d33f:Models/Soldier.php
         $pst->bindParam(':mos', $mos);
         $pst->bindParam(':rank', $rank);
         $pst->bindParam(':first_name', $first_name);
@@ -132,8 +154,11 @@ class Personnel
         $pst->bindParam(':dob', $dob);
         $pst->bindParam(':blood_type', $blood_type);
         $pst->bindParam(':address', $address);
+<<<<<<< HEAD:Models/User.php
+=======
         $pst->bindParam(':personnel_id', $id);
 
+>>>>>>> e49a41de6bd3fbc7d6731de99a3ef19ad4b5d33f:Models/Soldier.php
         $count = $pst->execute();
         return $count;
     }
