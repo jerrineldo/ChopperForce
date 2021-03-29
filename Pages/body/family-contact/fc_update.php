@@ -1,7 +1,4 @@
 <?php 
-ini_set('display_startup_errors', 1);
-ini_set('display_errors', 1);
-error_reporting(-1);
 require_once "../Models/FamilyContact.php";
 require_once "../Models/DatabaseContext.php";
 require_once "../Library/form-functions.php";
@@ -11,24 +8,8 @@ $fc = new FamilyContact();
 $relationships = ["Spouse", "Father", "Mother", "Brother", "Sister"];
 $preferences = ["Yes", "No"];
 
-if (isset($_POST['fc_update'])){
-    $id = $_POST['fc_id'];
-    $first_name = $_POST['fc_fName'];
-    $last_name = $_POST['fc_lastName'];
-    $relationship = $_POST['fc_relationship'];
-    $phone = $_POST['fc_phone'];
-    $email = $_POST['fc_email'];
-    $address = $_POST['fc_address'];
-    $preference_form = $_POST['preference_form'] == "Yes" ? true : false;
-    $physical_location = $_POST['fc_location']; 
-
-    $count = $fc->updateFamilyContacts($dbcon, $id, $first_name, $last_name, $relationship, $phone, $email, $address, $preference_form, $physical_location);
-    if($count){
-       header('Location: family_contact.php');
-    } else {
-        echo "<p class='not-found'>Problem Updating Family Contact<p>";
-    }
-}
+// validation variables
+$fNameErr = $lNameErr = $phoneErr = $emailErr = $addressErr = null;
 
 if(isset($_POST['updateFC'])){
     $id = $_POST['id'];
@@ -42,9 +23,61 @@ if(isset($_POST['updateFC'])){
     $address = $contact->address;
     $preference_form = $contact->preference_form ? "Yes" : "No";
     $physical_location = $contact->physical_location;
-} else {
+}
+
+if(!isset($_POST['fc_update']) && !isset($_POST['id'])){
     header('Location: family_contact.php');
 }
+
+
+function validateFields($first_name, $last_name, $phone, $email, $address){
+    global $fNameErr, $lNameErr, $relationErr, $phoneErr, $emailErr, $addressErr, $preferenceErr, $locationError;
+    $validationError = false;
+    if(empty($first_name)){
+        $fNameErr = "Enter a valid First Name";
+        $validationError = true;
+    }
+    if(empty($last_name)){
+        $lNameErr = "Enter a valid Last Name";
+        $validationError = true;
+    }
+    if(empty($phone) || !(preg_match("/^[0-9]{10}$/", $phone))){
+        $phoneErr = "Enter a valid Phone number";
+        $validationError = true;
+    }
+    if(empty($email)|| !filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $emailErr = "Enter a valid Email";
+        $validationError = true;
+    }
+    if(empty($address)){
+        $addressErr = "Enter a valid Address";
+        $validationError = true;
+    }
+    return $validationError;
+}
+
+if (isset($_POST['fc_update'])){
+    $id = $_POST['fc_id'];
+    $first_name = $_POST['fc_fName'];
+    $last_name = $_POST['fc_lastName'];
+    $relationship = $_POST['fc_relationship'];
+    $phone = $_POST['fc_phone'];
+    $email = $_POST['fc_email'];
+    $address = $_POST['fc_address'];
+    $preference_form = $_POST['preference_form'] == "Yes" ? true : false;
+    $physical_location = !empty($_POST['fc_location']) ? $_POST['fc_location'] : "N/A" ; 
+
+    $validationError = validateFields($first_name, $last_name, $phone, $email, $address);
+    if(!$validationError){
+        $count = $fc->updateFamilyContacts($dbcon, $id, $first_name, $last_name, $relationship, $phone, $email, $address, $preference_form, $physical_location);
+        if($count){
+           header('Location: family_contact.php');
+        } else {
+            echo "<p class='not-found'>Problem Updating Family Contact<p>";
+        }
+    }
+}
+
 ?>
 <div class="container frg">
     <h2 class="report-title">Family Contact Update Page</h2>
@@ -53,9 +86,11 @@ if(isset($_POST['updateFC'])){
         <div class="form-row">
             <div class="form-group col-md-6">
                 <input type="text" class="form-control" name="fc_fName" placeholder="First Name" value="<?= $first_name; ?>">
+                <div class="text-danger"><?= isset($fNameErr) ? $fNameErr : ''; ?></div>
             </div>
             <div class="form-group col-md-6">
                 <input type="text" class="form-control" name="fc_lastName" placeholder="Last Name" value="<?= $last_name; ?>">
+                <div class="text-danger"><?= isset($lNameErr) ? $lNameErr : ''; ?></div>
             </div>
         </div>
         <div class="form-group col-md-12">
@@ -67,14 +102,17 @@ if(isset($_POST['updateFC'])){
         <div class="form-row">
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" name="fc_phone" placeholder="Phone" value="<?= $phone; ?>">
+                <div class="text-danger"><?= isset($phoneErr) ? $phoneErr   : ''; ?></div>
             </div>
             <div class="form-group col-md-8">
                 <input type="email" class="form-control" name="fc_email" placeholder="Email" value="<?= $email; ?>">
+                <div class="text-danger"><?= isset($emailErr) ? $emailErr    : ''; ?></div>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-12">
                 <input type="text" class="form-control" name="fc_address" placeholder="Address" value="<?= $address; ?>">
+                <div class="text-danger"><?= isset($addressErr) ? $addressErr   : ''; ?></div>
             </div>
         </div>
         <div class="form-row">
