@@ -95,7 +95,7 @@ class Account {
         $password = $account->getPassword();
         $role = $account->getRole();
 
-        $sql = "UPDATE account
+        $sql = "UPDATE login
                 SET 
                 user_id = :user_id,
                 username = :username,
