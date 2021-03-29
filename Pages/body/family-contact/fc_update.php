@@ -85,49 +85,57 @@ if (isset($_POST['fc_update'])){
         <input type="hidden" name="fc_id" value="<?= $id; ?>"/>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <input type="text" class="form-control" name="fc_fName" placeholder="First Name" value="<?= $first_name; ?>">
+                <label class="label label-default" for="fc_fName">First Name:</label>
+                <input type="text" class="form-control" id="fc_fName" name="fc_fName" placeholder="First Name" value="<?= $first_name; ?>">
                 <div class="text-danger"><?= isset($fNameErr) ? $fNameErr : ''; ?></div>
             </div>
             <div class="form-group col-md-6">
+                <label class="label label-default" for="fc_lastName">Last Name:</label>
                 <input type="text" class="form-control" name="fc_lastName" placeholder="Last Name" value="<?= $last_name; ?>">
                 <div class="text-danger"><?= isset($lNameErr) ? $lNameErr : ''; ?></div>
             </div>
         </div>
-        <div class="form-group col-md-12">
-            <select id="inputState" name="fc_relationship" class="form-control">
+        <div class="form-group col-md-6">
+            <label class="label label-default" for="fc_relationship">Relationship:</label>
+            <select id="inputState" id="fc_relationship" name="fc_relationship" class="form-control">
                 <option value="" disabled>Relationship</option>
                 <?php echo populateDropdown($relationships, $relationship) ?>
             </select>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
-                <input type="text" class="form-control" name="fc_phone" placeholder="Phone" value="<?= $phone; ?>">
+            <div class="form-group col-md-6">
+                <label class="label label-default" for="fc_phone">Phone:</label>
+                <input type="text" class="form-control" id="fc_phone" name="fc_phone" placeholder="Phone" value="<?= $phone; ?>">
                 <div class="text-danger"><?= isset($phoneErr) ? $phoneErr   : ''; ?></div>
             </div>
-            <div class="form-group col-md-8">
-                <input type="email" class="form-control" name="fc_email" placeholder="Email" value="<?= $email; ?>">
+            <div class="form-group col-md-6">
+                <label class="label label-default" for="fc_email">Email:</label>
+                <input type="email" class="form-control" id="fc_email" name="fc_email" placeholder="Email" value="<?= $email; ?>">
                 <div class="text-danger"><?= isset($emailErr) ? $emailErr    : ''; ?></div>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-12">
-                <input type="text" class="form-control" name="fc_address" placeholder="Address" value="<?= $address; ?>">
+            <div class="form-group col-md-6">
+                <label class="label label-default" for="fc_address">Address:</label>
+                <input type="text" class="form-control" id="fc_address" name="fc_address" placeholder="Address" value="<?= $address; ?>">
                 <div class="text-danger"><?= isset($addressErr) ? $addressErr   : ''; ?></div>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-5">
-                <select id="inputState" name="preference_form" class="form-control">
+            <div class="form-group col-md-6">
+                <label class="label label-default" for="preference_form">Preference Form</label>
+                <select id="inputState" id="preference_form" name="preference_form" class="form-control">
                     <option value="" disabled>Preference Form</option>
                     <?php echo populateDropdown($preferences, $preference_form) ?>
                 </select>
             </div>
-            <div class="form-group col-md-7">
-                <input type="text" class="form-control" name="fc_location" placeholder="Physical Location" value="<?= $physical_location; ?>">
+            <div class="form-group col-md-6">
+                <label class="label label-default" for="fc_location">Physical Location</label>
+                <input type="text" class="form-control" id="fc_location" name="fc_location" placeholder="Physical Location" value="<?= $physical_location; ?>">
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-8">
+            <div class="form-group col-md-6">
                 <input type="submit" value="Update" name="fc_update" class="btn btn-success col-md-12"/>
             </div>
             <div class="form-group col-md-4">
