@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="../Stylesheets/reports_page.css">
 
 <?php
+  require_once '../Models/DatabaseContext.php';
   require_once '../Models/Soldier.php';
   include './personal_report/list.php';
   include "footer.php"; 

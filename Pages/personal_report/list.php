@@ -32,7 +32,7 @@ $CompanyList = $PersonalDto->getAllPersonnels($db);
         </tr>
       </thead>
       <tbody>
-      <?php foreach($CompanyList as $Soldier) {?>
+      <?php foreach($CompanyList as $Soldier) { // Loop through the results and show them?>
         <tr>
           <td><?= $Soldier->mos ?></td>
           <td><?= $Soldier->rank ?></td>
@@ -44,8 +44,9 @@ $CompanyList = $PersonalDto->getAllPersonnels($db);
           <td><?= $Soldier->dob ?></td>
           <td><?= $Soldier->address ?></td>
           <td>
-              <form action="update.php/<?=$Soldier->id?>" method="post">
-                  <input type="hidden" name="id" value=""/>
+          
+            <form action="personnel_update.php" method="get">
+                  <input type="hidden" name="id" value="<?=$Soldier->id?>"/>
                   <input type="submit" class="button btn btn-primary" name="updateSoldier" value="Update"/>
               </form>
           </td>
@@ -59,6 +60,6 @@ $CompanyList = $PersonalDto->getAllPersonnels($db);
         <?php } ?>
       </tbody>
     </table>
-    <a href="../soldier_info/soldier_info_form.php" id="Personnel_Add" class="btn btn-success btn-lg float-right">Add Soldier</a>
+    <a href="data_entery_form.php" id="Personnel_Add" class="btn btn-success btn-lg float-right">Add Soldier</a>
   </div>
 </div>
