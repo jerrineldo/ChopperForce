@@ -1,49 +1,54 @@
 tr:nth-child(odd) td {
-	background-color: #333333;
+  background-color: #333333;
 }
 
 tr:nth-child(even) td {
-	background-color: #222222;
+  background-color: #222222;
 }
 th,
 td {
-	color: #fff;
+  color: #fff;
 }
 th {
-	font-size: 0.9em;
+  font-size: 0.9em;
 }
 td {
-	font-size: 0.85em;
+  font-size: 0.85em;
 }
 
 .report_page {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .report_page-search {
-	margin-top: 1em;
-	margin-bottom: 4em;
+  margin-top: 1em;
+  margin-bottom: 4em;
 }
 
 .report-title {
-	text-align: center;
-	color: #fff;
-	margin: 1em 0;
-	text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  margin: 1em 0;
+  text-transform: uppercase;
 }
 
 .tbl__frg {
-	border-top: 2px solid #9d9d9d;
+  border-top: 2px solid #9d9d9d;
 }
 
 .center-form {
-	margin: 0 auto;
-	width: 60%; /* value of your choice which suits your alignment */
+  margin: 0 auto;
+  width: 60%; /* value of your choice which suits your alignment */
 }
 
 .center-form label {
-	color: white;
+  color: white;
+}
+
+.not-found {
+  color: white;
+  font-size: 1.5em;
 }
