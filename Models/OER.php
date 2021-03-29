@@ -23,28 +23,18 @@ class Oer
         $pst->execute();
         return $pst->fetch(\PDO::FETCH_OBJ);
     }
-   /* public function getAllOers($dbcon){
-        $sql = "SELECT * FROM officer_reportcards";
-        $pdostm = $dbcon->prepare($sql);
-        $pdostm->execute();
 
-        $oers = $pdostm->fetchAll(\PDO::FETCH_OBJ);
-        return $oers;
-    }*/
 
-    public function addOer($id, $user_id, $rank,$first_name,$last_name, $rater, $int_rater, $senior_rater, $last_oer, $thru_date, $due, $type, $remarks)
+    public function addOer($user_id, $rater, $int_rater, $senior_rater, $last_oer, $thru_date, $due, $type, $remarks, $dbcon)
     {
-        $sql = "INSERT INTO officer_reportcards (id, user_id, rank,first_name, last_name, rater, int_rater, senior_rater, last_oer, thru_date, due, type, remarks )
-             VALUES (:id, :user_id, :rank, :rater, :int_rater, :senior_rater, :last_oer, :thru_date, :due, :type, :remarks) ";
+        $sql = "INSERT INTO officer_reportcards (user_id, rater, int_rater, senior_rater, last_oer, thru_date, due, type, remarks )
+             VALUES (:user_id, :rater, :int_rater, :senior_rater, :last_oer, :thru_date, :due, :type, :remarks) ";
 
-        $pst = $db->prepare($sql);
+        $pst = $dbcon->prepare($sql);
 
 
-        $pst->bindParam(':id', $id);
+
         $pst->bindParam(':user_id', $user_id);
-        $pst->bindParam(':rank', $rank);
-        $pst->bindParam(':first_name', $first_name);
-        $pst->bindParam(':first_name', $last_name);
         $pst->bindParam(':rater', $rater);
         $pst->bindParam(':int_rater', $int_rater);
         $pst->bindParam(':senior_rater', $senior_rater);
@@ -59,9 +49,9 @@ class Oer
         return $count;
     }
 
-    public function deleteOer($id, $dbcon){
+    public function deleteOer($id, $con){
         $sql = "DELETE FROM officer_reportcards WHERE id = :id";
-        $pst = $dbcon->prepare($sql);
+        $pst = $con->prepare($sql);
         $pst->bindParam(':id', $id);
         $count = $pst->execute();
         return $count;

@@ -1,6 +1,5 @@
 <?php
-/*require_once '../../Models/DatabaseContext.php';
-require_once '../../Models/OER.php';*/
+
 $dbcon= DatabaseContext::dbConnect();//DatabaseContext
 $s = new Oer();
 $oers = $s->getAllOers(DatabaseContext::dbConnect());
@@ -68,7 +67,7 @@ $oers = $s->getAllOers(DatabaseContext::dbConnect());
         <?php } ?>
         </tbody>
     </table>
-    <a href="addOER.php" id="btn_addOER" class="btn btn-success btn-lg float-right">Add OER</a>
+    <a href="../Pages/OER/addOER.php" id="btn_addOER" class="btn btn-success btn-lg float-right">Add OER</a>
 
 </div>
 </body>
