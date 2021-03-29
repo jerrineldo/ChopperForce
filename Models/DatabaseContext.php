@@ -1,9 +1,9 @@
 <?php 
     class DatabaseContext {
         // Enter own information for database
-        private static $user = "";
+        private static $user = "root";
         private static $password = 'root';
-        private static $dsn = 'mysql:host=localhost;dbname=ChopperForceFiveDB';
+        private static $dsn = 'mysql:host=localhost;dbname=CFFDB';
         private static $dbcon;
 
         private function __construct() {
