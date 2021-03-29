@@ -7,7 +7,7 @@ $fc = new FamilyContact();
 
 
 $searchKey = isset($_GET['search']) ? $_GET['search'] : null;
-
+$isGoBack = false;
 if(isset($_POST['deleteFC'])){
     $id = $_POST['id'];
     $count = $fc->removeFamilyContacts($dbcon, $id);
@@ -18,6 +18,7 @@ if(isset($_POST['deleteFC'])){
      }
 }
 if(isset($_GET['search']) && $searchKey){
+    $isGoBack = true;
     $fcList = $fc->searchFamilyContacts($dbcon, $searchKey);
 }else {
     $fcList = $fc->getAllFamilyContacts($dbcon);
@@ -34,16 +35,12 @@ if(isset($_GET['search']) && $searchKey){
 
     <?php
         if(count($fcList) === 0){
-            echo("
-            <p class='not-found'>No Results Found<p>
-            <a href='family_contact.php' class='btn btn-danger col-md-12' >Go Back</a>
-            ");
+            echo("<p class='not-found'>No Results Found<p>");
         }else {
     ?>
         <table class="table table-dark table-striped table-responsive tbl__frg">
             <thead>
                 <tr>
-                    <th scope="col">User ID</th>
                     <th scope="col">Full Name</th>
                     <th scope="col">Rank</th>
                     <th scope="col">Family Member Name</th>
@@ -60,7 +57,6 @@ if(isset($_GET['search']) && $searchKey){
             <tbody>
                 <?php foreach ($fcList as $contact) { ?>
                     <tr>
-                        <td><?= $contact->userId; ?></td>
                         <td><?= $contact->full_name; ?></td>
                         <td><?= $contact->rank; ?></td>
                         <td><?= $contact->member_name; ?></td>
@@ -87,4 +83,9 @@ if(isset($_GET['search']) && $searchKey){
             </tbody>
         </table>
     <?php } ?>
+    <?php 
+        if($isGoBack){
+            echo("<a href='family_contact.php' class='btn btn-danger' >Go Back</a>");
+        }
+    ?>
 </div>
