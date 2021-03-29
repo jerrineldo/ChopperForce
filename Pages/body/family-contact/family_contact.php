@@ -41,7 +41,6 @@ if(isset($_GET['search']) && $searchKey){
         <table class="table table-dark table-striped table-responsive tbl__frg">
             <thead>
                 <tr>
-                    <th scope="col">User ID</th>
                     <th scope="col">Full Name</th>
                     <th scope="col">Rank</th>
                     <th scope="col">Family Member Name</th>
@@ -58,7 +57,6 @@ if(isset($_GET['search']) && $searchKey){
             <tbody>
                 <?php foreach ($fcList as $contact) { ?>
                     <tr>
-                        <td><?= $contact->userId; ?></td>
                         <td><?= $contact->full_name; ?></td>
                         <td><?= $contact->rank; ?></td>
                         <td><?= $contact->member_name; ?></td>
