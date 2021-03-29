@@ -23,7 +23,7 @@
     <tbody>
     <tr>
         <td>CPT</td>
-        <td>Jerrin</td>
+        <td>Jerrin Eldo Mazhuvancherry P</td>
         <td>Eldo</td>
         <td>13-Dec-1993</td>
         <td>19 March 2021</td>
