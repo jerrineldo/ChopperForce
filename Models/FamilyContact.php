@@ -82,7 +82,7 @@
             $sql = "SELECT fc.id, userId, CONCAT(fc.last_name, ' ' ,fc.first_name) AS 'full_name', fc.relationship, fc.phone, fc.email, fc.address, fc.preference_form, fc.physical_location, CONCAT(u.last_name, ' ', u.first_name) AS 'member_name', u.`rank` 
             FROM family_contacts as fc
             JOIN `user` u ON fc.userId  = u.id
-            WHERE LOWER((CONCAT(fc.last_name, ' ' ,fc.first_name)) LIKE :fullname) OR LOWER((CONCAT(u.last_name, ' ' ,fc.first_name)) LIKE :fullname)";
+            WHERE LOWER((CONCAT(fc.last_name, ' ' ,fc.first_name)) LIKE :fullname) OR LOWER((CONCAT(u.last_name, ' ' ,u.first_name)) LIKE :fullname)";
             $pdostm = $db->prepare($sql);
             $searchKey = "%".strtolower($name)."%";
             $pdostm->bindParam(':fullname', $searchKey);
