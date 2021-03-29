@@ -11,6 +11,6 @@
     require_once '../Models/DatabaseContext.php';
     require_once '../Models/PhysicalFitness.php';
     
-    include './physicalfitness_report/list.php';
+    include './physicalfitness_report/update.php';
     include 'footer.php'; 
 ?>
