@@ -17,7 +17,7 @@ An HR application developed for the us army.
 
 **Praveen Ramkumar:**
 
-Feature Name: Family Contact Page
+Feature Name: Family Contact Report Page
 
 Pages:
   1. Pages -> family_contact.php
