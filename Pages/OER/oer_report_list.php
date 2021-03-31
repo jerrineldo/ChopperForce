@@ -1,6 +1,5 @@
 <?php
-/*require_once '../../Models/DatabaseContext.php';
-require_once '../../Models/OER.php';*/
+
 $dbcon= DatabaseContext::dbConnect();//DatabaseContext
 $s = new Oer();
 $oers = $s->getAllOers(DatabaseContext::dbConnect());
@@ -52,9 +51,9 @@ $oers = $s->getAllOers(DatabaseContext::dbConnect());
 
                 <!--UPDATE AND DELETE BUTTONS-->
                 <td>
-                    <form action="updateOER.php" method="post">
-                        <input type="hidden" name="id" value="<?= $oer->id; ?>"/>
-                        <input type="submit" class="button btn btn-primary" name="updateOER" value="Update"/>
+                    <form action="../Pages/OER/updateOER.php" method="post">
+                        <input type="hidden" name="id" value="<?= $oer->id;?>"/>
+                        <input type="submit" class="button btn btn-primary" name="updateOer" value="Update"/>
                     </form>
                 </td>
                 <td>
@@ -68,8 +67,10 @@ $oers = $s->getAllOers(DatabaseContext::dbConnect());
         <?php } ?>
         </tbody>
     </table>
-    <a href="addOER.php" id="btn_addOER" class="btn btn-success btn-lg float-right">Add OER</a>
-
+    <a href="../Pages/OER/addOER.php" id="btn_addOER" class="btn btn-success btn-lg float-right">Add OER</a>
+    <br>
+    <br>
+    <br>
 </div>
 </body>
 </html>
