@@ -6,6 +6,24 @@ An HR application developed for the us army.
 - [ ] Organize file structure
 - [ ] Testing
 
+## Feature 1
+**Asia Levesque Gault:** 
+
+**Jerrin Eldo Mazhuvancherry:** 
+
+**Luis Botello:**  
+
+**Journey Gault:**  
+
+**Praveen Ramkumar:** 
+Feature Name: Family Contact Page
+Features: 
+1. Update family contacts
+2. Delete family contacts
+3. List family contacts
+4. Search contact by names
+5. Remote Database Server
+
 ## Interfaces
 **Asia Levesque Gault:** Homepage, Header, Nav, Footer, OER, NCOER
 
