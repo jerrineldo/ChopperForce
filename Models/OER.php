@@ -16,9 +16,9 @@ class Oer
     }
 
 
-    public function getOerById($id, $db){
+    public function getOerById($id, $dbcon){
         $sql = "SELECT * FROM officer_reportcards where id = :id";
-        $pst = $db->prepare($sql);
+        $pst = $dbcon->prepare($sql);
         $pst->bindParam(':id', $id);
         $pst->execute();
         return $pst->fetch(\PDO::FETCH_OBJ);
@@ -58,15 +58,11 @@ class Oer
     }
 
     public function updateOer($id, $user_id, $rank, $first_name, $last_name,$rater, $int_rater, $senior_rater,
-                              $last_oer, $thru_date, $due, $type, $remarks){
+                              $last_oer, $thru_date, $due, $type, $remarks, $dbcon){
 
         $sql = "Update officer_reportcards
                set
-               id = :id,
                user_id = :user_id,
-               rank = :rank,
-               first_name =:first_name, 
-               last_name=:last_name,
                rater = :rater,
                int_rater = :int_rater,
                senior_rater = :senior_rater,
@@ -79,11 +75,8 @@ class Oer
 
         $pst = $db->prepare($sql);
 
-        $pst->bindParam(':id', $id);
+
         $pst->bindParam(':user_id', $user_id);
-        $pst->bindParam(':rank', $rank);
-        $pst->bindParam(':first_name', $first_name);
-        $pst->bindParam(':first_name', $last_name);
         $pst->bindParam(':rater', $rater);
         $pst->bindParam(':int_rater', $int_rater);
         $pst->bindParam(':senior_rater', $senior_rater);

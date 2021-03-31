@@ -24,14 +24,13 @@ if(isset($_POST['addOer'])){
 
 
     if($c){
-        echo "Added OER successfully";
+        header("Location: ../oer_report.php");
     } else {
         echo "problem adding a OER";
     }
 
 }
 ?>
-
 
 <html lang="en">
 
@@ -98,11 +97,8 @@ if(isset($_POST['addOer'])){
                    id="remarks" placeholder="Type">
             <span style="color: red"></span>
         </div>
-
         <a href="../oer_report.php" id="btn_back" class="btn btn-success float-left">Back</a>
-        <button type="submit" name="addOer" class="btn btn-primary float-right" id="btn-submit">
-            Add OER
-        </button>
+        <button type="submit" name="addOer" class="btn btn-primary float-right" id="btn-submit">Add OER</button>
     </form>
 </div>
 
