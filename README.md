@@ -19,6 +19,12 @@ An HR application developed for the us army.
 
 Feature Name: Family Contact Page
 
+Pages:
+  1. Pages -> family_contact.php
+  2. Pages -> fc_update.php
+  3. Pages -> body -> family-contact -> family_contact.php
+  4. Pages -> body -> family-contact -> fc_update.php
+
 Features: 
 1. Update family contacts
 2. Delete family contacts
