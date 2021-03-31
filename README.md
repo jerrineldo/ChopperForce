@@ -15,8 +15,10 @@ An HR application developed for the us army.
 
 **Journey Gault:**  
 
-**Praveen Ramkumar:** 
+**Praveen Ramkumar:**
+
 Feature Name: Family Contact Page
+
 Features: 
 1. Update family contacts
 2. Delete family contacts
