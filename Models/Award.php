@@ -64,10 +64,9 @@ class Award
                 reason = :reason,
                 present = :present,
                 days = :days,
-                remarks = :remarks,
+                remarks = :remarks
                 WHERE id = :id";
         $pst =  $db->prepare($sql);
-       
         $pst->bindParam(':user_id', $user_id);
         $pst->bindParam(':recommender', $recommender);
         $pst->bindParam(':award', $award);
@@ -75,6 +74,8 @@ class Award
         $pst->bindParam(':present', $present);
         $pst->bindParam(':days', $days);
         $pst->bindParam(':remarks', $remarks);
+        $pst->bindParam(':id', $id);
+
         $count = $pst->execute();
         return $count;
     }

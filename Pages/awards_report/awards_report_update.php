@@ -1,10 +1,10 @@
 <?php 
 require_once "../Models/DatabaseContext.php";
 require_once "../Models/Award.php";
-$user_id=$recommender=$award=$reason=$present=$days=$remarks="";
-$s2 = new Award();
+$user_id=$recommender=$award2=$reason=$present=$days=$remarks="";
+// $s2 = new Award();
 
-$user_id = $s2->getUsers(DatabaseContext::dbConnect());
+// $user_id = $s2->getUsers(DatabaseContext::dbConnect());
 
 
 
@@ -12,9 +12,11 @@ if(isset($_POST['updateAward'])){
     $id= $_POST['id'];
     // var_dump($id);
     $dbcon= DatabaseContext::dbConnect();
+    var_dump($_POST);
 
     $s = new Award();
     $award = $s->getAwardsById($id, $dbcon);
+    var_dump($award);
     $user_id=$award->user_id;
     $recommender=$award->recommender;
     $award2=$award->award;
@@ -31,6 +33,7 @@ if(isset($_POST['updateAward'])){
 if(isset($_POST['updAward'])){
     $id=$_POST['sid'];
     
+    var_dump($_POST);
 
     $user_id=$_POST['user_id'];
     $recommender=$_POST['recommender'];
@@ -40,13 +43,12 @@ if(isset($_POST['updAward'])){
     $days=$_POST['days'];
     $remarks=$_POST['remarks'];
 
-
     $dbcon= DatabaseContext::dbConnect();
     $s = new Award();
-    $count = $s->updateAward($id,$user_id,$recommender,$award,$reason,$present,$days,$remarks,$db);
+    $count = $s->updateAward($id,$user_id,$recommender,$award,$reason,$present,$days,$remarks,$dbcon);
 
     if($count){
-        header("location:list-cars.php");
+        // header("location:list-cars.php");
     }else{
         echo"Problem updating car";
     }
@@ -67,7 +69,7 @@ if(isset($_POST['updAward'])){
 
 <!-- <div>
        Form to Add  award -->
-    <form action="./award_report_list.php">
+    <form action="" method="POST">
 
         <!-- <div class="form-group">
             <label for="name">Make :</label> 
@@ -82,7 +84,7 @@ if(isset($_POST['updAward'])){
         <div class="form-group">
             <label for="user_id"class="report-title">user_id :</label>
             <input type="text" class="form-control" id="user_id" name="user_id"
-                   value="<?= strval($user_id); ?>" placeholder="Enter user ID">
+                   value="<?=$user_id;?>" placeholder="Enter user ID">
             <span style="color: red">
 
             </span>

@@ -1,16 +1,13 @@
 <?php 
 require_once "../../Models/DatabaseContext.php";
-require_once "../../Models/Award.php";
+require_once "../../Models/Dutie.php";
 
 if(isset($_POST['id'])){
     $id = $_POST['id'];
     $dbcon= DatabaseContext::dbConnect();//DatabaseContext
     $s = new Dutie();
-    $count = $s->deleteAward($id, $dbcon);
-//check to see if its working first if(isset($_POST['id'])){
-// $id=$_POST['id'];
-// echo $id;
-//}
+    $count = $s->deleteDutie($id, $dbcon);
+
     if($count){
         header("./location:duties_report_list.php");
     }else{
