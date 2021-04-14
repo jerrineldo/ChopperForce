@@ -6,6 +6,31 @@ An HR application developed for the us army.
 - [ ] Organize file structure
 - [ ] Testing
 
+## Feature 2
+**Asia Levesque Gault:** 
+
+**Jerrin Eldo Mazhuvancherry:** 
+
+**Luis Botello:**  
+
+**Journey Gault:**  
+
+**Praveen Ramkumar:**
+
+Feature Name: Emergency Contact Report Page
+
+Pages:
+  1. Pages -> emergency_contact.php
+  2. Pages -> update_contact.php
+  3. Pages -> body -> emergency-contact -> emergency_contact.php
+  4. Pages -> body -> emergency-contact -> update_contact.php
+
+Features: 
+1. Update emergency contacts
+2. Delete emergency contacts
+3. List emergency contacts
+4. Search contact by names
+
 ## Feature 1
 **Asia Levesque Gault:** 
 

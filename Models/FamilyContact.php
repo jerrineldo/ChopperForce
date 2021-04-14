@@ -2,7 +2,7 @@
     class FamilyContact
     {
         public function getAllFamilyContacts($db){
-            $sql = "SELECT fc.id, userId, CONCAT(fc.last_name, ' ' ,fc.first_name) AS 'full_name', fc.relationship, fc.phone, fc.email, fc.address, fc.preference_form, fc.physical_location, CONCAT(u.last_name, ' ', u.first_name) AS 'member_name', u.`rank` 
+            $sql = "SELECT fc.id, userId, CONCAT(fc.first_name, ' ' ,fc.last_name) AS 'member_name', fc.relationship, fc.phone, fc.email, fc.address, fc.preference_form, fc.physical_location, CONCAT(u.last_name, ' ', u.first_name) AS 'full_name', u.`rank` 
             FROM family_contacts as fc
             JOIN `user` u ON fc.userId  = u.id";
             $pdostm = $db->prepare($sql);
@@ -27,7 +27,7 @@
             return $count;
         }
 
-        public function addFamilyContact($db, $id, $first_name, $last_name, $relationship, $phone, $email, $address, $preference_form, $physical_location){
+        public function addFamilyContact($db, $first_name, $last_name, $relationship, $phone, $email, $address, $preference_form, $physical_location){
             $sql = "INSERT INTO family_contacts 
             (first_name, last_name, relationship, phone, email, address, preference_form, physical_location) 
             VALUES (:first_name, :last_name, :relationship, :phone, :email, :address, :preference_form, :physical_location)";
@@ -41,7 +41,6 @@
             $pst->bindParam(':address', $address);
             $pst->bindParam(':preference_form', $preference_form);
             $pst->bindParam(':physical_location', $physical_location);
-            $pst->bindParam(':id', $id);
 
             $count = $pst->execute();
 
@@ -79,10 +78,10 @@
         }
 
         public function searchFamilyContacts($db, $name){
-            $sql = "SELECT fc.id, userId, CONCAT(fc.last_name, ' ' ,fc.first_name) AS 'full_name', fc.relationship, fc.phone, fc.email, fc.address, fc.preference_form, fc.physical_location, CONCAT(u.last_name, ' ', u.first_name) AS 'member_name', u.`rank` 
+            $sql = "SELECT fc.id, userId, CONCAT(fc.first_name, ' ' ,fc.last_name) AS 'full_name', fc.relationship, fc.phone, fc.email, fc.address, fc.preference_form, fc.physical_location, CONCAT(u.last_name, ' ', u.first_name) AS 'member_name', u.`rank` 
             FROM family_contacts as fc
             JOIN `user` u ON fc.userId  = u.id
-            WHERE LOWER((CONCAT(fc.last_name, ' ' ,fc.first_name)) LIKE :fullname) OR LOWER((CONCAT(u.last_name, ' ' ,u.first_name)) LIKE :fullname)";
+            WHERE LOWER((CONCAT(fc.first_name, ' ' ,fc.last_name)) LIKE :fullname) OR LOWER((CONCAT(u.first_name, ' ' ,u.last_name)) LIKE :fullname)";
             $pdostm = $db->prepare($sql);
             $searchKey = "%".strtolower($name)."%";
             $pdostm->bindParam(':fullname', $searchKey);

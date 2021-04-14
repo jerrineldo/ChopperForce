@@ -34,6 +34,7 @@ class Dutie
                 WHERE id = :id";
         $pst =  $db->prepare($sql);
         $pst->bindParam(':qualifications_category_name', $qualifications_category_name);
+        $pst->bindParam(':id', $id);
 
         $count = $pst->execute();
         return $count;

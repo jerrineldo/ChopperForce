@@ -1,7 +1,7 @@
 <?php 
 require_once "../Models/DatabaseContext.php";
 require_once "../Models/Dutie.php";
-$qualifications_duty_categories="";
+$qualifications_category_name="";
 // $s2 = new Award();
 
 // $user_id = $s2->getUsers(DatabaseContext::dbConnect());
@@ -18,7 +18,7 @@ if(isset($_POST['updateDutie'])){
     $s = new Dutie();
     $Dutie = $s->getDutieById($id, $dbcon);
 
-    $qualifications_duty_categories = $Dutie->qualifications_category_name;
+    $qualifications_category_name = $Dutie->qualifications_category_name;
 
 
 }
@@ -28,16 +28,16 @@ if(isset($_POST['updDutie'])){
     
     var_dump($_POST);
 
-    $qualifications_duty_categories=$_POST['qualifications_category_name'];
+    $qualifications_category_name=$_POST['qualifications_category_name'];
 
     $dbcon= DatabaseContext::dbConnect();
     $s = new Dutie();
-    $count = $s->updateDutie($id,$qualifications_duty_categories,$dbcon);
+    $count = $s->updateDutie($id,$qualifications_category_name,$dbcon);
 
     if($count){
         // header("location:list-cars.php");
     }else{
-        echo"Problem updating car";
+        echo"Problem updating Duty";
     }
 
 
@@ -62,10 +62,7 @@ if(isset($_POST['updDutie'])){
         <div class="form-group">
             <label for="user_id"class="report-title">qualifications_duty_categories :</label>
             <input type="text" class="form-control" id="user_id" name="qualifications_category_name"
-                   value="<?=$qualifications_duty_categories;?>" placeholder="">
-            <span style="color: red">
-
-            </span>
+                   value="<?=$qualifications_category_name;?>">
         </div>
 
         <a href="" id="btn_back" class="btn btn-success float-left">Back</a>
