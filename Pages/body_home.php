@@ -1,6 +1,17 @@
 
 <!--Use DB Data to generate quantities of people-->
+<?php
+   require_once "../Models/OER.php";
+   require_once "../Models/NCOER.php";
 
+   require_once "../Models/DatabaseContext.php";
+$dbcon= DatabaseContext::dbConnect();//DatabaseContext
+$s = new Oer();
+$oers = $s->getAllUpcommingOers(DatabaseContext::dbConnect());
+
+$s = new Ncoer();
+$ncoers = $s->getUpcommingNcoers(DatabaseContext::dbConnect());
+?>
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
@@ -30,4 +41,87 @@
             </div>
         </div>
     </div>
+</div>
+<h2 class="report-title">Upcoming OER</h2>
+<div class="m-1">
+    
+    <table class="table table-bordered tbl">
+        <thead>
+        <tr>
+            <th scope="col">OER_ID</th>
+            <th scope="col">Rank </th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Rater</th>
+            <th scope="col">Int Rater</th>
+            <th scope="col">Senior Rater</th>
+            <th scope="col">Last OER</th>
+            <th scope="col">THRU Date</th>
+            <th scope="col">Due</th>
+            <th scope="col">Type</th>
+            <th scope="col">Remarks</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($oers as $oer) { ?>
+        <tr>
+            
+            <th><?= $oer->id; ?></th>
+            <th><?= $oer->rank; ?></th>
+            <th><?= $oer->first_name; ?></th>
+            <th><?= $oer->last_name; ?></th>
+            <th><?= $oer->rater; ?></th>
+            <th><?= $oer->int_rater; ?></th>
+            <th><?= $oer->senior_rater; ?></th>
+            <th><?= $oer->last_oer; ?></th>
+            <th><?= $oer->thru_date; ?></th>
+            <th><?= $oer->due; ?></th>
+            <th><?= $oer->type; ?></th>
+            <th><?= $oer->remarks; ?></th>
+        <?php } ?>
+        </tbody>
+    </table>
+    <div class="m-1">
+    <h2 class="report-title">Upcoming NCOER</h2>
+
+    <table class="table table-bordered tbl">
+        <thead>
+        <tr>
+            <th scope="col">NCOER_ID</th>
+            <th scope="col">Rank </th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Rater</th>
+            <th scope="col">Senior Rater</th>
+            <th scope="col">Reviewer</th>
+            <th scope="col">Last NCOER</th>
+            <th scope="col">THRU Date</th>
+            <th scope="col">Due</th>
+            <th scope="col">Type</th>
+            <th scope="col">Remarks</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($ncoers as $ncoer) { ?>
+            <tr>
+                <th><?= $ncoer->id; ?></th>
+                <th><?= $ncoer->rank; ?></th>
+                <th><?= $ncoer->first_name; ?></th>
+                <th><?= $ncoer->last_name; ?></th>
+                <th><?= $ncoer->rater; ?></th>
+                <th><?= $ncoer->senior_rater; ?></th>
+                <th><?= $ncoer->reviewer; ?></th>
+                <th><?= $ncoer->last_ncoer; ?></th>
+                <th><?= $ncoer->thru_date; ?></th>
+                <th><?= $ncoer->due; ?></th>
+                <th><?= $ncoer->type; ?></th>
+                <th><?= $ncoer->remarks; ?></th>
+            </tr>
+
+        <?php } ?>
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <br>
 </div>

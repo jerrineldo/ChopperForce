@@ -16,7 +16,7 @@
                     self::$dbcon->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ); 
                 } catch (PDOException $error) {
                     $errorMsg = $error->getMessage();
-                    include "../Pages/ErrorPage.php";
+                    include "../../Pages/ErrorPage.php";
                     exit();
                 }
     

@@ -14,7 +14,18 @@ class Ncoer
         $results = $pdostm->fetchAll(\PDO::FETCH_OBJ);
         return $results;
     }
-
+//Journeys method for getting upcoming OER DATES
+public function getUpcommingNcoers($db){
+    $sql = "SELECT eoc.id, user_id, u.rank, u.first_name , u.last_name, 
+            eoc.rater, eoc.senior_rater, eoc.reviewer, eoc.last_ncoer, eoc.thru_date, eoc.due, eoc.type, eoc.remarks 
+            FROM enlisted_reportcards as eoc
+            JOIN `user` u ON eoc.user_id  = u.id
+            WHERE (due <= DATE_ADD(NOW(), INTERVAL 1 MONTH)) and(due >= NOW()) ";
+    $pdostm = $db->prepare($sql);
+    $pdostm->execute();
+    $results = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+    return $results;
+}
 
     public function getNcoerById($id, $dbcon){
         $sql = "SELECT * FROM enlisted_reportcards where id = :id";
