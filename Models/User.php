@@ -17,6 +17,15 @@ class User
         $users = $pdostm->fetchAll(\PDO::FETCH_OBJ);
         return $users;
     }
+    //Journeys method for summing users by rank
+    public function getAllUsesByRank($dbcon){
+        $sql = "SELECT rank, COUNT(id) as NumberofSoldiersByRank  FROM `user` 
+        group by `rank` ";
+        $pdostm = $dbcon->prepare($sql);
+        $pdostm->execute();
+        $users = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+        return $users;
+    }
     public function addUser($mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address,$db)
     {
         $sql = "INSERT INTO user (mos, rank, first_name, last_name, ssn, dod_id,dob,blood_type,address) 
