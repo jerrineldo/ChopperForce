@@ -14,12 +14,14 @@ $oers = $s->getAllUpcommingOers($dbcon);
 $OerList = $s->getAllOers($dbcon);
 $s = new Ncoer();
 $ncoers = $s->getUpcommingNcoers(DatabaseContext::dbConnect());
-$s = new User();
+
 $NcoerList = $s->getAllNcoers($dbcon);
 $ncoers = $s->getUpcommingNcoers($dbcon);
 $today = time();
 
+$s = new User();
 $Users = $s->getAllUsesByRank(DatabaseContext::dbConnect());
+$UserList = $s->getAllUsers($dbcon);
 //Initialize list of reports that are overdue
 $NcoerOverdueList = array();
 $OerOverdueList = array();
