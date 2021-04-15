@@ -64,7 +64,7 @@ foreach ($OerList as $Oer) {
         </div>
     </div>
 </div>
-<h2 style="color:#9d9d9d; " class="report-title">Upcoming OER</h2>
+<h2 style="color:#9d9d9d; " class="report-title">OER Alerts</h2>
 
     
 <table class="table" style="color:#9d9d9d;">        
@@ -80,6 +80,16 @@ foreach ($OerList as $Oer) {
         </tr>
     </thead>
     <tbody>
+    <?php foreach ($OerOverdueList as $oer) { ?>
+        <tr>
+            
+            <th><?= $oer->id; ?></th>
+            <th><?= $oer->rank; ?></th>
+            <th><?= $oer->name; ?></th>
+            <th><?= $oer->rater; ?></th>
+            <th><?= $oer->due; ?></th>
+            <th>Overdue</th>
+        <?php } ?>
     <?php foreach ($oers as $oer) { ?>
         <tr>
             
@@ -94,7 +104,7 @@ foreach ($OerList as $Oer) {
     </tbody>
 </table>
    
-<h2 style="color:#9d9d9d;"> Upcoming NCOER</h2>
+<h2 style="color:#9d9d9d;">NCOER Alerts</h2>
 
 <table class="table" style="color:#9d9d9d; ">        
     <thead>
@@ -108,6 +118,16 @@ foreach ($OerList as $Oer) {
         </tr>
     </thead>
     <tbody>
+    <?php foreach ($NcoerOverdueList as $ncoer) { ?>
+        <tr>
+            <th><?= $ncoer->id; ?></th>
+            <th><?= $ncoer->rank; ?></th>
+            <th><?= $ncoer->name; ?></th>
+            <th><?= $ncoer->rater; ?></th>
+            <th><?= $ncoer->due; ?></th>
+            <th>Overdue</th>
+        </tr>
+    <?php } ?>
     <?php foreach ($ncoers as $ncoer) { ?>
         <tr>
             <th><?= $ncoer->id; ?></th>
@@ -116,7 +136,6 @@ foreach ($OerList as $Oer) {
             <th><?= $ncoer->rater; ?></th>
             <th><?= $ncoer->due; ?></th>
             <th><?= $ncoer->Countdown; ?></th>
-              
         </tr>
     <?php } ?>
     </tbody>
