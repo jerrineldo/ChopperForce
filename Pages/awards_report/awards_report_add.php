@@ -1,7 +1,7 @@
 <?php
 require_once "../Models/DatabaseContext.php";
 require_once "../Models/Award.php";
-
+require_once "../Library/form-functions.php";
 
 $dbcon= DatabaseContext::dbConnect();//DatabaseContext
 $s = new Award();
