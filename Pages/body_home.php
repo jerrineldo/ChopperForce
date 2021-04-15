@@ -1,18 +1,41 @@
-
 <!--Use DB Data to generate quantities of people-->
 <?php
-   require_once "../Models/OER.php";
-   require_once "../Models/NCOER.php";
-   require_once "../Models/User.php";
-
-   require_once "../Models/DatabaseContext.php";
-$dbcon= DatabaseContext::dbConnect();//DatabaseContext
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+require_once "../Models/OER.php";
+require_once "../Models/NCOER.php";
+require_once "../Models/DatabaseContext.php";
+// Code to extract reports coming due soon written by Journey, overdue reports written by Luis
+$dbcon = DatabaseContext::dbConnect();//DatabaseContext
 $s = new Oer();
-$oers = $s->getAllUpcommingOers(DatabaseContext::dbConnect());
+$oers = $s->getAllUpcommingOers($dbcon);
+$OerList = $s->getAllOers($dbcon);
 $s = new Ncoer();
 $ncoers = $s->getUpcommingNcoers(DatabaseContext::dbConnect());
 $s = new User();
-$Users = $s->getAllUsesByRank(DatabaseContext::dbConnect());
+$NcoerList = $s->getAllNcoers($dbcon);
+$ncoers = $s->getUpcommingNcoers($dbcon);
+$today = time();
+//Initialize list of reports that are overdue
+$NcoerOverdueList = array();
+$OerOverdueList = array();
+//Loop through NCOER array to filter out overdue reports
+foreach ($NcoerList as $Ncoer) {
+  //Pull out report due date
+  $NcoerDue = strtotime($Ncoer->due);
+  if ($NcoerDue < $today ) {
+    array_push($NcoerOverdueList,$Ncoer);
+  }
+}
+//Loop through OER array to filter out overdue reports
+foreach ($OerList as $Oer) {
+  //Pull out report due date
+  $OerDue = strtotime($Oer->due);
+  if ($OerDue < $today ) {
+    array_push($OerOverdueList,$Oer);
+  }
+}
 ?>
 
 <div class="row">
@@ -42,9 +65,9 @@ $Users = $s->getAllUsesByRank(DatabaseContext::dbConnect());
 <h2 style="color:#9d9d9d; " class="report-title">Upcoming OER</h2>
 
     
-<table class="table" style="color:#9d9d9d;">        <thead>
+<table class="table" style="color:#9d9d9d;">        
+    <thead>
         <tr class="table-danger">
-
             <th scope="col">OER_ID</th>
             <th scope="col">Rank </th>
             <th scope="col">Name</th>
@@ -52,12 +75,10 @@ $Users = $s->getAllUsesByRank(DatabaseContext::dbConnect());
             <th scope="col">Rater</th>
             <th scope="col">Due</th>
             <th scope="col">Days Left</th>
-            
-            
         </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($oers as $oer) { ?>
+    </thead>
+    <tbody>
+    <?php foreach ($oers as $oer) { ?>
         <tr>
             
             <th><?= $oer->id; ?></th>
@@ -68,12 +89,13 @@ $Users = $s->getAllUsesByRank(DatabaseContext::dbConnect());
             <th><?= $oer->Countdown; ?></th>
             
         <?php } ?>
-        </tbody>
-    </table>
+    </tbody>
+</table>
    
-    <h2 style="color:#9d9d9d;"> Upcoming NCOER</h2>
+<h2 style="color:#9d9d9d;"> Upcoming NCOER</h2>
 
-    <table class="table" style="color:#9d9d9d; ">        <thead>
+<table class="table" style="color:#9d9d9d; ">        
+    <thead>
         <tr>
             <th scope="col">NCOER_ID</th>
             <th scope="col">Rank </th>
@@ -82,24 +104,22 @@ $Users = $s->getAllUsesByRank(DatabaseContext::dbConnect());
             <th scope="col">Due</th>
             <th scope="col">Days Left</th>
         </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($ncoers as $ncoer) { ?>
-            <tr>
-                <th><?= $ncoer->id; ?></th>
-                <th><?= $ncoer->rank; ?></th>
-                <th><?= $ncoer->name; ?></th>
-                
-                <th><?= $ncoer->rater; ?></th>
-                <th><?= $ncoer->due; ?></th>
-                <th><?= $ncoer->Countdown; ?></th>
+    </thead>
+    <tbody>
+    <?php foreach ($ncoers as $ncoer) { ?>
+        <tr>
+            <th><?= $ncoer->id; ?></th>
+            <th><?= $ncoer->rank; ?></th>
+            <th><?= $ncoer->name; ?></th>
+            <th><?= $ncoer->rater; ?></th>
+            <th><?= $ncoer->due; ?></th>
+            <th><?= $ncoer->Countdown; ?></th>
               
-            </tr>
-
-        <?php } ?>
-        </tbody>
-    </table>
-    <br>
-    <br>
-    <br>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<br>
+<br>
+<br>
 </div>
