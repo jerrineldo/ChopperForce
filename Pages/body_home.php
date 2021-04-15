@@ -5,6 +5,7 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 require_once "../Models/OER.php";
 require_once "../Models/NCOER.php";
+require_once "../Models/User.php";
 require_once "../Models/DatabaseContext.php";
 // Code to extract reports coming due soon written by Journey, overdue reports written by Luis
 $dbcon = DatabaseContext::dbConnect();//DatabaseContext
