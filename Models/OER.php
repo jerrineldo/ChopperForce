@@ -16,8 +16,8 @@ class Oer
     }
 //Journeys method for getting upcoming OER DATES
 public function getAllUpcommingOers($db){
-    $sql = "SELECT oc.id, user_id, u.rank, u.first_name , u.last_name, 
-            oc.rater, oc.int_rater, oc.senior_rater, oc.last_oer, oc.thru_date, oc.due, oc.type, oc.remarks 
+    $sql = "SELECT oc.id, user_id, u.rank, CONCAT(u.first_name ,' ' , u.last_name) AS name, 
+            oc.rater, oc.int_rater, oc.senior_rater, oc.last_oer, oc.thru_date, oc.due, oc.type, oc.remarks,  DATEDIFF( oc.due, CURDATE()) AS Countdown 
             FROM officer_reportcards as oc
             JOIN `user` u ON oc.user_id  = u.id
             WHERE (due <= DATE_ADD(NOW(), INTERVAL 1 MONTH)) and(due >= NOW()) ";
