@@ -17,6 +17,8 @@ $s = new User();
 $NcoerList = $s->getAllNcoers($dbcon);
 $ncoers = $s->getUpcommingNcoers($dbcon);
 $today = time();
+
+$Users = $s->getAllUsesByRank(DatabaseContext::dbConnect());
 //Initialize list of reports that are overdue
 $NcoerOverdueList = array();
 $OerOverdueList = array();
