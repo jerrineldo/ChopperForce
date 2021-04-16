@@ -14,7 +14,6 @@ if(isset($_POST['updateAward'])){
     $id= $_POST['id'];
     // var_dump($id);
     $dbcon= DatabaseContext::dbConnect();
-    var_dump($_POST);
 
     $s = new Award();
     $award = $s->getAwardsById($id, $dbcon);
@@ -134,7 +133,7 @@ if(isset($_POST['updAward'])){
             </span>
         </div>
 
-        <a href="./list-cars.php" id="btn_back" class="btn btn-success float-left">Back</a>
+        <a href="award_report_list.php" id="btn_back" class="btn btn-success float-left">Back</a>
         <button type="submit" name="updAward"
                 class="btn btn-primary float-right" id="btn-submit">
             Update Award

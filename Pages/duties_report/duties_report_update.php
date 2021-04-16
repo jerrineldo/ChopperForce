@@ -35,7 +35,7 @@ if(isset($_POST['updDutie'])){
     $count = $s->updateDutie($id,$qualifications_category_name,$dbcon);
 
     if($count){
-        // header("location:list-cars.php");
+        header("Location:duties_report_list.php ");    
     }else{
         echo"Problem updating Duty";
     }

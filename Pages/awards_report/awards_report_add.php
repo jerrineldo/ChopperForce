@@ -24,7 +24,7 @@ if(isset($_POST['addAward'])){//MAKE THIS MATCH BUTTON
     $s = new Award();
     $c = $s->addAward($user_id,$recommender,$award,$reason,$present,$days,$remarks,$db);
     if($c){
-        echo"added";
+        header("Location:award_report_list.php ");
 
     }
     else{

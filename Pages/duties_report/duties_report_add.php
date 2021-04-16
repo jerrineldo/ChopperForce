@@ -5,11 +5,9 @@ require_once "../Models/Dutie.php";
 
 $dbcon= DatabaseContext::dbConnect();//DatabaseContext
 $s = new Dutie();
-//DO THIS TO USERS
-// $user_id = $s->getUsers(DatabaseContext::dbConnect());
-//$user_id,$recommender,$award,$reason,$present,$days,$remarks
 
-if(isset($_POST['addDutie'])){//MAKE THIS MATCH BUTTON
+
+if(isset($_POST['addDutie'])){
     
     $qualifications_category_name=$_POST ['qualifications_category_name'];
     
@@ -19,7 +17,8 @@ if(isset($_POST['addDutie'])){//MAKE THIS MATCH BUTTON
     $s = new Dutie();
     $c = $s->addDutie($qualifications_category_name,$db);
     if($c){
-        echo"added";
+        header("Location:duties_report_list.php ");    
+
 
     }
     else{
@@ -51,9 +50,9 @@ if(isset($_POST['addDutie'])){//MAKE THIS MATCH BUTTON
             <span style="color: red">
 
 
-        <a href="./duties_report_list.php" id="btn_back" class="btn btn-success float-left">Back</a>
-        <button type="submit" name="addDutie"
-                class="btn btn-primary float-right" id="btn-submit">
+        <a href="./duties_report_list.php" id="btn_back" class="btn btn-primary float-right">Back</a>
+        <button type="submit"  class="btn btn-success float-left" name="addDutie"
+                 id="btn-submit">
             Add Qualification/Duty
         </button>
     </form>
