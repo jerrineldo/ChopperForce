@@ -1,3 +1,17 @@
+
+**Features and Discriptions
+
+**Asia Levesque Gault:** Homepage, Header, Nav, Footer, OER, NCOER
+
+**Jerrin Eldo Mazhuvancherry:** Login
+
+**Luis Botello:** Company List, DashBoard 
+
+**Journey Gault:** Awards Report(full CRUD), Duties Report(full CRUD), 3d feature is  OER Alerts, NCOER Alerts and Roster on the home page. Roster is number of soldiers by rank, and the oer alerts and ncoer alerts, show ALL upcoming NCOER and OER reports that are due in the next 30 days. This third featre was an attempt to create a sort of "At a glance" view for the users.
+
+**Praveen Ramkumar:** family-contact & update, weapons, weapons-qualificaion & update, emergency contact & update
+
+
 # ChopperForceFive
 An HR application developed for the us army.
 ## To do
@@ -57,16 +71,6 @@ Features:
 4. Search contact by names
 5. Remote Database Server
 
-## Interfaces
-**Asia Levesque Gault:** Homepage, Header, Nav, Footer, OER, NCOER
-
-**Jerrin Eldo Mazhuvancherry:** Login
-
-**Luis Botello:** Company List, DashBoard 
-
-**Journey Gault:** DataEnteryform 
-
-**Praveen Ramkumar:** family-contact & update, weapons, weapons-qualificaion & update, emergency contact & update
 
 We have created a shared MySQL Db.
 ![DB](https://github.com/2021-Winter-HTTP-5202-A/ChopperForceFive/blob/main/Images/Capture.PNG)
