@@ -6,12 +6,21 @@ class User
     public function getUserById($id, $db){
         $sql = "SELECT * FROM user where id = :id";//Possible error
         $pst = $db->prepare($sql);
-        $pst->bindParam(':user_id', $id);
+        $pst->bindParam(':id', $id);
         $pst->execute();
         return $pst->fetch(\PDO::FETCH_OBJ);
     }
     public function getAllUsers($dbcon){
         $sql = "SELECT * FROM user";
+        $pdostm = $dbcon->prepare($sql);
+        $pdostm->execute();
+        $users = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+        return $users;
+    }
+    //Journeys method for summing users by rank
+    public function getAllUsesByRank($dbcon){
+        $sql = "SELECT rank, COUNT(id) as NumberofSoldiersByRank  FROM `user` 
+        group by `rank` ";
         $pdostm = $dbcon->prepare($sql);
         $pdostm->execute();
         $users = $pdostm->fetchAll(\PDO::FETCH_OBJ);
@@ -43,7 +52,7 @@ class User
         $count = $pst->execute();
         return $count;
     }
-    public function updateUser($id,$mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address){
+    public function updateUser($id,$mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address,$db){
         $sql = "Update user
                 set 
                 mos = :mos,
@@ -56,6 +65,7 @@ class User
                 blood_type = :blood_type,
                 address = :address
                 WHERE id = :id";
+        $pst = $db->prepare($sql);
         $pst->bindParam(':mos', $mos);
         $pst->bindParam(':rank', $rank);
         $pst->bindParam(':first_name', $first_name);

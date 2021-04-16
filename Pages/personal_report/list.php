@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 
 $db = DatabaseContext::dbConnect();
 
-$PersonalDto = new Personnel();
-$CompanyList = $PersonalDto->getAllPersonnels($db);
+$PersonalDto = new User();
+$CompanyList = $PersonalDto->getAllUsers($db);
 ?>
 <div class="container personnelreport">
   <h2 class="report-title">Personnel Report</h2>

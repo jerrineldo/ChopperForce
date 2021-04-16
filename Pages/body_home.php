@@ -1,39 +1,66 @@
 
 <!--Use DB Data to generate quantities of people-->
 <?php
-   require_once "../Models/OER.php";
-   require_once "../Models/NCOER.php";
-
-   require_once "../Models/DatabaseContext.php";
-$dbcon= DatabaseContext::dbConnect();//DatabaseContext
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+require_once "../Models/OER.php";
+require_once "../Models/NCOER.php";
+require_once "../Models/User.php";
+require_once "../Models/DatabaseContext.php";
+// Code to extract reports coming due soon written by Journey, overdue reports written by Luis
+$dbcon = DatabaseContext::dbConnect();//DatabaseContext
 $s = new Oer();
-$oers = $s->getAllUpcommingOers(DatabaseContext::dbConnect());
+$oers = $s->getAllUpcommingOers($dbcon);
+$OerList = $s->getAllOers($dbcon);
 $s = new Ncoer();
 $ncoers = $s->getUpcommingNcoers(DatabaseContext::dbConnect());
 
+$NcoerList = $s->getAllNcoers($dbcon);
+$ncoers = $s->getUpcommingNcoers($dbcon);
+$today = time();
+
+$s = new User();
+$Users = $s->getAllUsesByRank(DatabaseContext::dbConnect());
+$UserList = $s->getAllUsers($dbcon);
+//Initialize list of reports that are overdue
+$NcoerOverdueList = array();
+$OerOverdueList = array();
+//Loop through NCOER array to filter out overdue reports
+foreach ($NcoerList as $Ncoer) {
+  //Pull out report due date
+  $NcoerDue = strtotime($Ncoer->due);
+  if ($NcoerDue < $today ) {
+    $id = $Ncoer->user_id;
+    array_push($NcoerOverdueList,$Ncoer);
+  }
+}
+//Loop through OER array to filter out overdue reports
+foreach ($OerList as $Oer) {
+  //Pull out report due date
+  $OerDue = strtotime($Oer->due);
+  if ($OerDue < $today ) {
+    array_push($OerOverdueList,$Oer);
+  }
+}
 ?>
+
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title" id="rosterTitle" style="color:#9d9d9d; padding-left: 5px;">Roster:</h4>
                 <ul class="list-group">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">Officers
-                        <span class="badge badge-primary badge-pill">6</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">NCOs
-                        <span class="badge badge-primary badge-pill">22</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">Warrent Officers
-                        <span class="badge badge-primary badge-pill">12</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">Enlisted
-                        <span class="badge badge-primary badge-pill">102</span>
-                    </li>
+                    <?php foreach ($Users as $user) { ?>
+                        <li class="list-group-item d-flex justify-content-between align-items-center"><?= $user->rank; ?>
+                        <span class="badge badge-primary badge-pill"><?= $user->NumberofSoldiersByRank?></span>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
     </div>
+    
     <div class="col-sm-6">
         <div class="card">
             <div class="card-body">
@@ -42,100 +69,85 @@ $ncoers = $s->getUpcommingNcoers(DatabaseContext::dbConnect());
         </div>
     </div>
 </div>
-
+<h2 style="color:#9d9d9d; " class="report-title">OER Alerts</h2>
 
     
-<!--    <table class="table table-bordered tbl">
-        <thead>
-        <tr>
+<table class="table" style="color:#9d9d9d;">        
+    <thead>
+        <tr class="table-danger">
             <th scope="col">OER_ID</th>
             <th scope="col">Rank </th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">Name</th>
+            <!-- <th scope="col">Last Name</th> -->
             <th scope="col">Rater</th>
             <th scope="col">Due</th>
+            <th scope="col">Days Left</th>
         </tr>
-        </thead>
-        <tbody>
-        <?php /*foreach ($oers as $oer) { */?>
+    </thead>
+    <tbody>
+    <?php foreach ($OerOverdueList as $oer) { ?>
         <tr>
-            <th><?/*= $oer->id; */?></th>
-            <th><?/*= $oer->rank; */?></th>
-            <th><?/*= $oer->first_name; */?></th>
-            <th><?/*= $oer->last_name; */?></th>
-            <th><?/*= $oer->rater; */?></th>
-            <th><?/*= $oer->due; */?></th>
-        <?php /*} */?>
-        </tbody>
-    </table>-->
-    <div class="m-1">
-    <h4 id="rosterTitle"  class="report-title">Upcoming NCOER</h4>
+            
+            <th><?= $oer->id; ?></th>
+            <th><?= $oer->rank; ?></th>
+            <th><?=  $oer->first_name." ".$oer->last_name?></th>
+            <th><?= $oer->rater; ?></th>
+            <th><?= $oer->due; ?></th>
+            <th>Overdue</th>
+        <?php } ?>
+    <?php foreach ($oers as $oer) { ?>
+        <tr>
+        
+            <th><?= $oer->id; ?></th>
+            <th><?= $oer->rank; ?></th>
+            <th><?= $oer->name; ?></th>
+            <th><?= $oer->rater; ?></th>
+            <th><?= $oer->due; ?></th>
+            <th><?= $oer->Countdown; ?></th>
+            
+        <?php } ?>
+    </tbody>
+</table>
+   
+<h2 style="color:#9d9d9d;">NCOER Alerts</h2>
 
-        <table class="table" style="color:#9d9d9d; background-color:#fff;">
-            <thead>
-            <tr class="table-light">
-                <th scope="col">OER_ID</th>
-                <th scope="col">Rank </th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Rater</th>
-                <th scope="col">Due</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($oers as $oer) {?>
-            <tr class="table-white">
-                <th><?= $oer->id;?></th>
-                <th><?= $oer->rank;?></th>
-                <th><?= $oer->first_name;?></th>
-                <th><?= $oer->last_name;?></th>
-                <th><?= $oer->rater;?></th>
-                <th><?= $oer->due;?></th>
-            </tr>
-            <?php }?>
-            </tbody>
-        </table>
-
-
-
-<!--    <table class="table table-bordered tbl">
-        <thead>
+<table class="table" style="color:#9d9d9d; ">        
+    <thead>
         <tr>
             <th scope="col">NCOER_ID</th>
             <th scope="col">Rank </th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">Name</th>
             <th scope="col">Rater</th>
-            <th scope="col">Senior Rater</th>
-            <th scope="col">Reviewer</th>
-            <th scope="col">Last NCOER</th>
-            <th scope="col">THRU Date</th>
             <th scope="col">Due</th>
-            <th scope="col">Type</th>
-            <th scope="col">Remarks</th>
+            <th scope="col">Days Left</th>
         </tr>
-        </thead>
-        <tbody>
-        <?php /*foreach ($ncoers as $ncoer) { */?>
-            <tr>
-                <th><?/*= $ncoer->id; */?></th>
-                <th><?/*= $ncoer->rank; */?></th>
-                <th><?/*= $ncoer->first_name; */?></th>
-                <th><?/*= $ncoer->last_name; */?></th>
-                <th><?/*= $ncoer->rater; */?></th>
-                <th><?/*= $ncoer->senior_rater; */?></th>
-                <th><?/*= $ncoer->reviewer; */?></th>
-                <th><?/*= $ncoer->last_ncoer; */?></th>
-                <th><?/*= $ncoer->thru_date; */?></th>
-                <th><?/*= $ncoer->due; */?></th>
-                <th><?/*= $ncoer->type; */?></th>
-                <th><?/*= $ncoer->remarks; */?></th>
-            </tr>
-
-        <?php /*} */?>
-        </tbody>
-    </table>-->
-    <br>
-    <br>
-    <br>
+    </thead>
+    <tbody>
+    <?php foreach ($NcoerOverdueList as $ncoer) { ?>
+        <tr>
+            <?php  $user = $s->getUserById($id,$dbcon);?>
+            <th><?= $ncoer->id; ?></th>
+            <th><?= $ncoer->rank; ?></th>
+            <th><?= $user->first_name." ".$user->last_name; ?></th>
+            <th><?= $ncoer->rater; ?></th>
+            <th><?= $ncoer->due; ?></th>
+            <th>Overdue</th>
+        </tr>
+    <?php } ?>
+    <?php foreach ($ncoers as $ncoer) { ?>
+        <tr>
+            <th><?= $ncoer->id; ?></th>
+            <th><?= $ncoer->rank; ?></th>
+            <th><?= $ncoer->name; ?></th>
+            <th><?= $ncoer->rater; ?></th>
+            <th><?= $ncoer->due; ?></th>
+            <th><?= $ncoer->Countdown; ?></th>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<br>
+<br>
+<br>
 </div>
+

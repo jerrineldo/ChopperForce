@@ -7,7 +7,7 @@ require_once 'header.php';
     ?>
 </style>
 <?php
-require_once'../Models/NCOER.php';
+require_once '../Models/NCOER.php';
 require_once "../Models/DatabaseContext.php";
 require_once 'nav.php';
 require_once './NCOER/ncoer_report_list.php';
