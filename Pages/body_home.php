@@ -43,8 +43,33 @@ foreach ($OerList as $Oer) {
     array_push($OerOverdueList,$Oer);
   }
 }
-?>
 
+foreach ($Users as $user) {
+
+             // var_dump([$user->rank , $user->NumberofSoldiersByRank]);
+    var_dump((int)$user->NumberofSoldiersByRank);
+}
+?>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Rank', 'Count'],
+            <?php foreach ($Users as $user) {
+                ?>
+               ['<?php echo $user->rank ?>',<?php echo (int)$user->NumberofSoldiersByRank ?>],
+            <?php } ?>
+        ]);
+        var options = {
+            title: 'Rank Unit Breakdown'
+        };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+    }
+</script>
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
@@ -65,6 +90,8 @@ foreach ($OerList as $Oer) {
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title" id="rosterTitle" style="color:#9d9d9d; padding-left: 5px;">Pie Chart:</h4>
+                <div id="piechart" style="width: 900px; height: 500px;"></div>
+                </body>
             </div>
         </div>
     </div>
