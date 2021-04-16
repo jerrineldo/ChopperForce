@@ -3,7 +3,6 @@
 
 require 'header.php';
 require 'nav.php';
-require './stylesheets/cff.css';
 
 
 

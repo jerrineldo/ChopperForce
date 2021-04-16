@@ -64,7 +64,7 @@ class Award
                 reason = :reason,
                 present = :present,
                 days = :days,
-                remarks = :remaArks
+                remarks = :remarks
                 WHERE id = :id";
         $pst =  $db->prepare($sql);
         $pst->bindParam(':user_id', $user_id);

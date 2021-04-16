@@ -33,18 +33,19 @@ Form By Journey
                 <td>
                     <form action="../Pages/duties_report_update.php" method="post">
                         <input type="hidden" name="id" value="<?= $Dutie->id; ?>"/>
-                        <input type="submit"  name="updateDutie" value="Update"/>
+                        <input type="submit"class="button btn btn-primary"  name="updateDutie" value="Update"/>
                     </form>
                 </td>
                 <td>
-                    <form action="../Pages/duties_report/duties_report_delete.php" method="post">
+                    <form action="duties_report/duties_report_delete.php" method="post">
                         <input type="hidden" name="id" value="<?=  $Dutie->id; ?>"/>
-                        <input type="submit"  name="deleteDutie" value="Delete"/>
+                        <input type="submit"class="button btn btn-danger"  name="deleteDutie" value="Delete"/>
                     </form>
                 </td>
             </tr>
         <?php } ?>
         
     </tbody>
+    <a href="./duties_report_add.php" id="btn_back" class="btn btn-success float-left">Add New Dutie</a>
 </table>
 </body>

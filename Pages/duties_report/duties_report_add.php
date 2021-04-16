@@ -5,11 +5,9 @@ require_once "../Models/Dutie.php";
 
 $dbcon= DatabaseContext::dbConnect();//DatabaseContext
 $s = new Dutie();
-//DO THIS TO USERS
-// $user_id = $s->getUsers(DatabaseContext::dbConnect());
-//$user_id,$recommender,$award,$reason,$present,$days,$remarks
 
-if(isset($_POST['addDutie'])){//MAKE THIS MATCH BUTTON
+
+if(isset($_POST['addDutie'])){
     
     $qualifications_category_name=$_POST ['qualifications_category_name'];
     
@@ -19,7 +17,8 @@ if(isset($_POST['addDutie'])){//MAKE THIS MATCH BUTTON
     $s = new Dutie();
     $c = $s->addDutie($qualifications_category_name,$db);
     if($c){
-        echo"added";
+        header("Location:duties_report_list.php ");    
+
 
     }
     else{
@@ -31,11 +30,10 @@ if(isset($_POST['addDutie'])){//MAKE THIS MATCH BUTTON
 
 
 <html lang="en">
-<h1>Add a new Qualification/Duty </h1>
-<head>
-    <title>Add Qualification/Duty</title>
-    
-</head>
+
+<header>
+    <h1 style="color:white;">Add a New Qualification/Duty </h1>
+</header>
 
 <body>
 
@@ -45,15 +43,15 @@ if(isset($_POST['addDutie'])){//MAKE THIS MATCH BUTTON
 
   
         <div class="form-group">
-            <label for="user_id">user_id :</label>
+            <label class = "label label-default" for="user_id">Duty Name</label>
             <input type="text" class="form-control" id="user_id" name="qualifications_category_name"
-                   value="" placeholder="Enter user ID">
+                   value="" placeholder="Enter the name of the duty">
             <span style="color: red">
 
 
-        <a href="../list-cars.php" id="btn_back" class="btn btn-success float-left">Back</a>
-        <button type="submit" name="addDutie"
-                class="btn btn-primary float-right" id="btn-submit">
+        <a href="./duties_report_list.php" id="btn_back" class="btn btn-primary float-right">Back</a>
+        <button type="submit"  class="btn btn-success float-left" name="addDutie"
+                 id="btn-submit">
             Add Qualification/Duty
         </button>
     </form>

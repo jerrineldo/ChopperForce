@@ -8,6 +8,7 @@ require_once "../Models/OER.php";
 require_once "../Models/NCOER.php";
 require_once "../Models/User.php";
 require_once "../Models/DatabaseContext.php";
+require_once "../Models/User.php";
 // Code to extract reports coming due soon written by Journey, overdue reports written by Luis
 $dbcon = DatabaseContext::dbConnect();//DatabaseContext
 $s = new Oer();
@@ -18,8 +19,8 @@ $ncoers = $s->getUpcommingNcoers(DatabaseContext::dbConnect());
 
 $NcoerList = $s->getAllNcoers($dbcon);
 $ncoers = $s->getUpcommingNcoers($dbcon);
-$today = time();
 
+$today = time();
 $s = new User();
 $Users = $s->getAllUsesByRank(DatabaseContext::dbConnect());
 $UserList = $s->getAllUsers($dbcon);

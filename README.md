@@ -1,3 +1,5 @@
+
+
 # ChopperForceFive
 An HR application developed for the us army.
 ## To do
@@ -6,18 +8,19 @@ An HR application developed for the us army.
 - [ ] Organize file structure
 - [ ] Testing
 
-## Feature 2
-**Asia Levesque Gault:** 
+#
+# Features and Discriptions
 
-**Jerrin Eldo Mazhuvancherry:** 
+**Asia Levesque Gault:** Homepage, Header, Nav, Footer, OER, NCOER
 
-**Luis Botello:**  
+**Jerrin Eldo Mazhuvancherry:** Login
 
-**Journey Gault:**  
+**Luis Botello:** Company List, DashBoard 
 
-**Praveen Ramkumar:**
+**Journey Gault:** Awards Report(full CRUD), Duties Report(full CRUD), 3d feature is  OER Alerts, NCOER Alerts and Roster on the home page. Roster is number of soldiers by rank, and the oer alerts and ncoer alerts, show ALL upcoming NCOER and OER reports that are due in the next 30 days. This third featre was an attempt to create a sort of "At a glance" view for the users.
 
-Feature Name: Emergency Contact Report Page
+**Praveen Ramkumar:** family-contact & update, weapons, weapons-qualificaion & update, emergency contact & update
+
 
 Pages:
   1. Pages -> emergency_contact.php
@@ -57,16 +60,6 @@ Features:
 4. Search contact by names
 5. Remote Database Server
 
-## Interfaces
-**Asia Levesque Gault:** Homepage, Header, Nav, Footer, OER, NCOER
-
-**Jerrin Eldo Mazhuvancherry:** Login
-
-**Luis Botello:** Company List, DashBoard 
-
-**Journey Gault:** DataEnteryform 
-
-**Praveen Ramkumar:** family-contact & update, weapons, weapons-qualificaion & update, emergency contact & update
 
 We have created a shared MySQL Db.
 ![DB](https://github.com/2021-Winter-HTTP-5202-A/ChopperForceFive/blob/main/Images/Capture.PNG)

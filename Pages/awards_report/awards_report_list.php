@@ -12,10 +12,12 @@ $Awards = $s->getAllAwards(DatabaseContext::dbConnect());
 Form By Journey
     !-->
     <body>
-<link rel="stylesheet" href="../Stylesheets/form.css">
+
+
 <link rel="stylesheet" href="../Stylesheets/reports_page.css">
 
 <h1 class="report-title">Awards Report Page</h1>
+<a href="./award_report_add.php" id="btn_back" class="btn btn-success float-left">Add New Award Report</a>
 <table class="table table-bordered tbl tbl__frg">
     <thead>
         <tr>
@@ -45,14 +47,14 @@ Form By Journey
                 <td><?= $award->remarks; ?></td>
                 <td>
                     <form action="../Pages/awards_report_update.php" method="post">
-                        <input type="hidden" name="id" value="<?= $award->id; ?>"/>
-                        <input type="submit"  name="updateAward" value="Update"/>
+                        <input type="hidden"  name="id" value="<?= $award->id; ?>"/>
+                        <input type="submit"class="button btn btn-primary"  name="updateAward" value="Update"/>
                     </form>
                 </td>
                 <td>
                     <form action="../Pages/awards_report/awards_report_delete.php" method="post">
                         <input type="hidden" name="id" value="<?=  $award->id; ?>"/>
-                        <input type="submit"  name="deleteAward" value="Delete"/>
+                        <input type="submit" class="button btn btn-danger"  name="deleteAward" value="Delete"/>
                     </form>
                 </td>
             </tr>

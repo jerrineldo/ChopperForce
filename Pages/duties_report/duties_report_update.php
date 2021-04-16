@@ -35,7 +35,7 @@ if(isset($_POST['updDutie'])){
     $count = $s->updateDutie($id,$qualifications_category_name,$dbcon);
 
     if($count){
-        // header("location:list-cars.php");
+        header("Location:duties_report_list.php ");    
     }else{
         echo"Problem updating Duty";
     }
@@ -46,7 +46,7 @@ if(isset($_POST['updDutie'])){
 
 
 <html lang="en">
-<h1>Update Dutie </h1>
+<h1 style="color:white;">Update Duty </h1>
 <head>
     <title>Add Dutie</title>
     
@@ -60,12 +60,12 @@ if(isset($_POST['updDutie'])){
 
         <input type="hidden" name="sid" value="<?= $id; ?>" />
         <div class="form-group">
-            <label for="user_id"class="report-title">qualifications_duty_categories :</label>
+            <label class = "label label-default" for="user_id"class="report-title">Update Qualification/Duty Name:</label>
             <input type="text" class="form-control" id="user_id" name="qualifications_category_name"
                    value="<?=$qualifications_category_name;?>">
         </div>
 
-        <a href="" id="btn_back" class="btn btn-success float-left">Back</a>
+        <a href="duties_report_list.php" id="btn_back" class="btn btn-success float-left">Back</a>
         <button type="submit" name="updDutie"
                 class="btn btn-primary float-right" id="btn-submit">
             Update Duty
