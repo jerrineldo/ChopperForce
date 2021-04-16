@@ -21,6 +21,8 @@
                     <li><a href="duties_report_list.php">Qualifications/Duties Report</a></li>
                     <li><a href="physicalFitness.php">Physical Fitness Report</a></li>
                     <li><a href="award_report_list.php">Awards Report</a></li>
+                    <li><a href="duties_report_list.php">Duties Report</a></li>
+
                 </ul>
             </li>
         </ul>

@@ -30,11 +30,10 @@ if(isset($_POST['addDutie'])){
 
 
 <html lang="en">
-<h1>Add a new Qualification/Duty </h1>
-<head>
-    <title>Add Qualification/Duty</title>
-    
-</head>
+
+<header>
+    <h1 style="color:white;">Add a New Qualification/Duty </h1>
+</header>
 
 <body>
 
@@ -44,7 +43,7 @@ if(isset($_POST['addDutie'])){
 
   
         <div class="form-group">
-            <label for="user_id">Duty Name</label>
+            <label class = "label label-default" for="user_id">Duty Name</label>
             <input type="text" class="form-control" id="user_id" name="qualifications_category_name"
                    value="" placeholder="Enter the name of the duty">
             <span style="color: red">

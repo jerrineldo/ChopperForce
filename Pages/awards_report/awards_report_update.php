@@ -60,7 +60,7 @@ if(isset($_POST['updAward'])){
 
 
 <html lang="en">
-<h1>Update Award </h1>
+<h1 style="color:white;">Update Award </h1>
 <head>
     <title>Add Award</title>
     
@@ -75,7 +75,7 @@ if(isset($_POST['updAward'])){
    
         <input type="hidden" name="sid" value="<?= $id; ?>" />
         <div class="form-group">
-            <label for="user_id">user_id :</label>
+            <label class = "label label-default" for="user_id">user_id :</label>
             <!-- <input type="text" class="form-control" id="user_id" name="user_id"
                    value="" placeholder="Enter user ID">
             <span style="color: red"> -->
@@ -85,7 +85,7 @@ if(isset($_POST['updAward'])){
            </select>
         </div>
         <div class="form-group">
-            <label for="recommender"class="report-title">recommender :</label>
+            <label class = "label label-default" for="recommender"class="report-title">recommender :</label>
             <input type="text" name="recommender" value="<?= $recommender; ?>" class="form-control"
                    id="recommender" placeholder="Enter recommender">
             <span style="color: red">
@@ -93,7 +93,7 @@ if(isset($_POST['updAward'])){
             </span>
         </div>
         <div class="form-group">
-            <label for="award"class="report-title">Award :</label>
+            <label class = "label label-default" for="award"class="report-title">Award :</label>
             <input type="text" name="award" value="<?= $award2; ?>" class="form-control"
                    id="award" placeholder="Enter Award">
             <span style="color: red">
@@ -101,7 +101,7 @@ if(isset($_POST['updAward'])){
             </span>
         </div>
         <div class="form-group">
-            <label for="reason"class="report-title">Reason :</label>
+            <label class = "label label-default" for="reason"class="report-title">Reason :</label>
             <input type="text" name="reason" value="<?= $reason; ?>" class="form-control"
                    id="reason" placeholder="Enter Reason">
             <span style="color: red">
@@ -109,7 +109,7 @@ if(isset($_POST['updAward'])){
             </span>
         </div>
         <div class="form-group">
-            <label for="present"class="report-title">Present :</label>
+            <label class = "label label-default" for="present"class="report-title">Present :</label>
             <input type="text" name="present" value="<?= $present; ?>" class="form-control"
                    id="present">
             <span style="color: red">
@@ -117,7 +117,7 @@ if(isset($_POST['updAward'])){
             </span>
         </div>
         <div class="form-group">
-            <label for="days"class="report-title">Days :</label>
+            <label class = "label label-default" for="days"class="report-title">Days :</label>
             <input type="date" name="days" value="<?= $days; ?>" class="form-control"
                    id="days">
             <span style="color: red">
@@ -125,7 +125,7 @@ if(isset($_POST['updAward'])){
             </span>
         </div>
         <div class="form-group">
-            <label for="remarks"class="report-title">Remarks :</label>
+            <label class = "label label-default" for="remarks"class="report-title">Remarks :</label>
             <input type="text" name="remarks" value="<?= $remarks; ?>" class="form-control"
                    id="remarks">
             <span style="color: red">
