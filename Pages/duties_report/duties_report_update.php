@@ -65,7 +65,7 @@ if(isset($_POST['updDutie'])){
                    value="<?=$qualifications_category_name;?>">
         </div>
 
-        <a href="" id="btn_back" class="btn btn-success float-left">Back</a>
+        <a href="duties_report_list.php" id="btn_back" class="btn btn-success float-left">Back</a>
         <button type="submit" name="updDutie"
                 class="btn btn-primary float-right" id="btn-submit">
             Update Duty

@@ -1,10 +1,12 @@
 <?php 
 require_once "../Models/DatabaseContext.php";
 require_once "../Models/Award.php";
-$user_id=$recommender=$award2=$reason=$present=$days=$remarks="";
-// $s2 = new Award();
+require_once "../Library/form-functions.php";
 
-// $user_id = $s2->getUsers(DatabaseContext::dbConnect());
+$user_id=$recommender=$award2=$reason=$present=$days=$remarks="";
+ $s2 = new Award();
+
+ $user_id2 = $s2->getUsers(DatabaseContext::dbConnect());
 
 
 
@@ -37,7 +39,7 @@ if(isset($_POST['updAward'])){
 
     $user_id=$_POST['user_id'];
     $recommender=$_POST['recommender'];
-    $award=$_POST['award'];
+    $award2=$_POST['award'];
     $reason=$_POST['reason'];
     $present=$_POST['present'];
     $days=$_POST['days'];
@@ -45,7 +47,7 @@ if(isset($_POST['updAward'])){
 
     $dbcon= DatabaseContext::dbConnect();
     $s = new Award();
-    $count = $s->updateAward($id,$user_id,$recommender,$award,$reason,$present,$days,$remarks,$dbcon);
+    $count = $s->updateAward($id,$user_id,$recommender,$award2,$reason,$present,$days,$remarks,$dbcon);
 
     if($count){
         // header("location:list-cars.php");
@@ -71,23 +73,17 @@ if(isset($_POST['updAward'])){
        Form to Add  award -->
     <form action="" method="POST">
 
-        <!-- <div class="form-group">
-            <label for="name">Make :</label> 
-            <select  class="form-control" name="make" id="make" value="">
-                <?php// echo PopulateDropwdown($makes) ?>
-            <span style="color: red">
-
-            </span> 
-        </div>-->
-        <!-- $remarks,$db -->
+   
         <input type="hidden" name="sid" value="<?= $id; ?>" />
         <div class="form-group">
-            <label for="user_id"class="report-title">user_id :</label>
-            <input type="text" class="form-control" id="user_id" name="user_id"
-                   value="<?=$user_id;?>" placeholder="Enter user ID">
-            <span style="color: red">
+            <label for="user_id">user_id :</label>
+            <!-- <input type="text" class="form-control" id="user_id" name="user_id"
+                   value="" placeholder="Enter user ID">
+            <span style="color: red"> -->
 
-            </span>
+            <select  class="form-control" name="user_id" id="user_id" value="">
+                <?php echo PopulateDropwdownSoldier($user_id2) ?>
+           </select>
         </div>
         <div class="form-group">
             <label for="recommender"class="report-title">recommender :</label>
@@ -149,3 +145,4 @@ if(isset($_POST['updAward'])){
 
 </body>
 </html>
+

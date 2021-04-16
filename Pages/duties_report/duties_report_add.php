@@ -45,13 +45,13 @@ if(isset($_POST['addDutie'])){//MAKE THIS MATCH BUTTON
 
   
         <div class="form-group">
-            <label for="user_id">user_id :</label>
+            <label for="user_id">Duty Name</label>
             <input type="text" class="form-control" id="user_id" name="qualifications_category_name"
-                   value="" placeholder="Enter user ID">
+                   value="" placeholder="Enter the name of the duty">
             <span style="color: red">
 
 
-        <a href="../list-cars.php" id="btn_back" class="btn btn-success float-left">Back</a>
+        <a href="./duties_report_list.php" id="btn_back" class="btn btn-success float-left">Back</a>
         <button type="submit" name="addDutie"
                 class="btn btn-primary float-right" id="btn-submit">
             Add Qualification/Duty

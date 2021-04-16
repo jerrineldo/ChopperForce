@@ -65,8 +65,7 @@ if(isset($_POST['addAward'])){//MAKE THIS MATCH BUTTON
 
             <select  class="form-control" name="user_id" id="user_id" value="">
                 <?php echo PopulateDropwdownSoldier($user_id) ?>
-
-            </span>
+           </select>
         </div>
         <div class="form-group">
             <label for="recommender">recommender :</label>
@@ -117,9 +116,9 @@ if(isset($_POST['addAward'])){//MAKE THIS MATCH BUTTON
             </span>
         </div>
 
-        <a href="../list-cars.php" id="btn_back" class="btn btn-success float-left">Back</a>
+        <a href="award_report_list.php" id="btn_back" class="btn btn-primary float-left">Back</a>
         <button type="submit" name="addAward"
-                class="btn btn-primary float-right" id="btn-submit">
+        class="btn btn-success" id="btn-submit">
             Add Award
         </button>
     </form>
