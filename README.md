@@ -1,5 +1,15 @@
 
-**Features and Discriptions
+
+# ChopperForceFive
+An HR application developed for the us army.
+## To do
+- [x] Setup database
+- [ ] Complete features
+- [ ] Organize file structure
+- [ ] Testing
+
+#
+**Features and Discriptions**
 
 **Asia Levesque Gault:** Homepage, Header, Nav, Footer, OER, NCOER
 
@@ -11,27 +21,6 @@
 
 **Praveen Ramkumar:** family-contact & update, weapons, weapons-qualificaion & update, emergency contact & update
 
-
-# ChopperForceFive
-An HR application developed for the us army.
-## To do
-- [x] Setup database
-- [ ] Complete features
-- [ ] Organize file structure
-- [ ] Testing
-
-## Feature 2
-**Asia Levesque Gault:** 
-
-**Jerrin Eldo Mazhuvancherry:** 
-
-**Luis Botello:**  
-
-**Journey Gault:**  
-
-**Praveen Ramkumar:**
-
-Feature Name: Emergency Contact Report Page
 
 Pages:
   1. Pages -> emergency_contact.php
