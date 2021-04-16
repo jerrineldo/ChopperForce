@@ -9,7 +9,7 @@ An HR application developed for the us army.
 - [ ] Testing
 
 #
-**Features and Discriptions**
+#Features and Discriptions#
 
 **Asia Levesque Gault:** Homepage, Header, Nav, Footer, OER, NCOER
 
