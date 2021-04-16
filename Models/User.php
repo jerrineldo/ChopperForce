@@ -52,7 +52,7 @@ class User
         $count = $pst->execute();
         return $count;
     }
-    public function updateUser($id,$mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address){
+    public function updateUser($id,$mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address,$db){
         $sql = "Update user
                 set 
                 mos = :mos,
@@ -65,6 +65,7 @@ class User
                 blood_type = :blood_type,
                 address = :address
                 WHERE id = :id";
+        $pst = $db->prepare($sql);
         $pst->bindParam(':mos', $mos);
         $pst->bindParam(':rank', $rank);
         $pst->bindParam(':first_name', $first_name);
