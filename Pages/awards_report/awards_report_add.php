@@ -59,9 +59,12 @@ if(isset($_POST['addAward'])){//MAKE THIS MATCH BUTTON
         <!-- $remarks,$db -->
         <div class="form-group">
             <label for="user_id">user_id :</label>
-            <input type="text" class="form-control" id="user_id" name="user_id"
+            <!-- <input type="text" class="form-control" id="user_id" name="user_id"
                    value="" placeholder="Enter user ID">
-            <span style="color: red">
+            <span style="color: red"> -->
+
+            <select  class="form-control" name="user_id" id="user_id" value="">
+                <?php echo PopulateDropwdownSoldier($user_id) ?>
 
             </span>
         </div>

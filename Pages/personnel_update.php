@@ -6,7 +6,7 @@
 
 <?php 
   require_once '../Models/DatabaseContext.php';
-  require_once '../Models/Soldier.php';
+  require_once '../Models/User.php';
   require_once './personal_report/update.php';
   include "footer.php"; 
 ?>

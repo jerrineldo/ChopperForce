@@ -5,6 +5,7 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 require_once "../Models/OER.php";
 require_once "../Models/NCOER.php";
+require_once "../Models/User.php";
 require_once "../Models/DatabaseContext.php";
 require_once "../Models/User.php";
 // Code to extract reports coming due soon written by Journey, overdue reports written by Luis
@@ -21,6 +22,7 @@ $ncoers = $s->getUpcommingNcoers($dbcon);
 $today = time();
 $s = new User();
 $Users = $s->getAllUsesByRank(DatabaseContext::dbConnect());
+$UserList = $s->getAllUsers($dbcon);
 //Initialize list of reports that are overdue
 $NcoerOverdueList = array();
 $OerOverdueList = array();
@@ -29,6 +31,7 @@ foreach ($NcoerList as $Ncoer) {
   //Pull out report due date
   $NcoerDue = strtotime($Ncoer->due);
   if ($NcoerDue < $today ) {
+    $id = $Ncoer->user_id;
     array_push($NcoerOverdueList,$Ncoer);
   }
 }
@@ -66,7 +69,7 @@ foreach ($OerList as $Oer) {
         </div>
     </div>
 </div>
-<h2 style="color:#9d9d9d; " class="report-title">Upcoming OER</h2>
+<h2 style="color:#9d9d9d; " class="report-title">OER Alerts</h2>
 
     
 <table class="table" style="color:#9d9d9d;">        
@@ -82,9 +85,19 @@ foreach ($OerList as $Oer) {
         </tr>
     </thead>
     <tbody>
-    <?php foreach ($oers as $oer) { ?>
+    <?php foreach ($OerOverdueList as $oer) { ?>
         <tr>
             
+            <th><?= $oer->id; ?></th>
+            <th><?= $oer->rank; ?></th>
+            <th><?=  $oer->first_name." ".$oer->last_name?></th>
+            <th><?= $oer->rater; ?></th>
+            <th><?= $oer->due; ?></th>
+            <th>Overdue</th>
+        <?php } ?>
+    <?php foreach ($oers as $oer) { ?>
+        <tr>
+        
             <th><?= $oer->id; ?></th>
             <th><?= $oer->rank; ?></th>
             <th><?= $oer->name; ?></th>
@@ -96,7 +109,7 @@ foreach ($OerList as $Oer) {
     </tbody>
 </table>
    
-<h2 style="color:#9d9d9d;"> Upcoming NCOER</h2>
+<h2 style="color:#9d9d9d;">NCOER Alerts</h2>
 
 <table class="table" style="color:#9d9d9d; ">        
     <thead>
@@ -110,6 +123,17 @@ foreach ($OerList as $Oer) {
         </tr>
     </thead>
     <tbody>
+    <?php foreach ($NcoerOverdueList as $ncoer) { ?>
+        <tr>
+            <?php  $user = $s->getUserById($id,$dbcon);?>
+            <th><?= $ncoer->id; ?></th>
+            <th><?= $ncoer->rank; ?></th>
+            <th><?= $user->first_name." ".$user->last_name; ?></th>
+            <th><?= $ncoer->rater; ?></th>
+            <th><?= $ncoer->due; ?></th>
+            <th>Overdue</th>
+        </tr>
+    <?php } ?>
     <?php foreach ($ncoers as $ncoer) { ?>
         <tr>
             <th><?= $ncoer->id; ?></th>
@@ -118,7 +142,6 @@ foreach ($OerList as $Oer) {
             <th><?= $ncoer->rater; ?></th>
             <th><?= $ncoer->due; ?></th>
             <th><?= $ncoer->Countdown; ?></th>
-              
         </tr>
     <?php } ?>
     </tbody>

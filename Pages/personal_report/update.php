@@ -1,19 +1,20 @@
-<?php 
+<?php
+/* //Here for debugging purposes
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 
 $db = DatabaseContext::dbConnect();
 $soldier_id = $_GET["id"];
 
-$selected_soldier = Personnel::getPersonnelById($soldier_id, $db);
+$updated_soldier = new User();
+$selected_soldier = $updated_soldier->getUserById($soldier_id, $db);
 
 if (isset($_POST["updateConfirm"])) {
     //Might change this to entering details into the class directly
-    $updated_soldier = new Personnel($_POST['id'],$_POST['mos'],$_POST['rank'],$_POST['first_name'],$_POST['last_name'], $_POST['ssn'],$_POST['dod_id'],$_POST['dob'],$_POST['blood_type'],$_POST['address']);
 
-    $response = $updated_soldier->updatePersonnel($updated_soldier, $db);
-    if(response) {
+    $response = $updated_soldier->updateUser($_POST['id'],$_POST['mos'],$_POST['rank'],$_POST['first_name'],$_POST['last_name'], $_POST['ssn'],$_POST['dod_id'],$_POST['dob'],$_POST['blood_type'],$_POST['address'], $db);
+    if($response) {
         ?><script>window.location.href = "./personnel_report.php";</script><?php //Redirect to list after a successful update
     }
 }
