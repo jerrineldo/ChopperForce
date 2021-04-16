@@ -6,7 +6,7 @@ class User
     public function getUserById($id, $db){
         $sql = "SELECT * FROM user where id = :id";//Possible error
         $pst = $db->prepare($sql);
-        $pst->bindParam(':user_id', $id);
+        $pst->bindParam(':id', $id);
         $pst->execute();
         return $pst->fetch(\PDO::FETCH_OBJ);
     }

@@ -30,6 +30,7 @@ foreach ($NcoerList as $Ncoer) {
   //Pull out report due date
   $NcoerDue = strtotime($Ncoer->due);
   if ($NcoerDue < $today ) {
+    $id = $Ncoer->user_id;
     array_push($NcoerOverdueList,$Ncoer);
   }
 }
@@ -88,14 +89,14 @@ foreach ($OerList as $Oer) {
             
             <th><?= $oer->id; ?></th>
             <th><?= $oer->rank; ?></th>
-            <th><?= $oer->name; ?></th>
+            <th><?=  $oer->first_name." ".$oer->last_name?></th>
             <th><?= $oer->rater; ?></th>
             <th><?= $oer->due; ?></th>
             <th>Overdue</th>
         <?php } ?>
     <?php foreach ($oers as $oer) { ?>
         <tr>
-            
+        
             <th><?= $oer->id; ?></th>
             <th><?= $oer->rank; ?></th>
             <th><?= $oer->name; ?></th>
@@ -123,9 +124,10 @@ foreach ($OerList as $Oer) {
     <tbody>
     <?php foreach ($NcoerOverdueList as $ncoer) { ?>
         <tr>
+            <?php  $user = $s->getUserById($id,$dbcon);?>
             <th><?= $ncoer->id; ?></th>
             <th><?= $ncoer->rank; ?></th>
-            <th><?= $ncoer->name; ?></th>
+            <th><?= $user->first_name." ".$user->last_name; ?></th>
             <th><?= $ncoer->rater; ?></th>
             <th><?= $ncoer->due; ?></th>
             <th>Overdue</th>
