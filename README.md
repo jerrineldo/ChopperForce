@@ -46,32 +46,3 @@ Features:
 3. List emergency contacts
 4. Search contact by names
 
-## Feature 1
-**Asia Levesque Gault:** 
-
-**Jerrin Eldo Mazhuvancherry:** 
-
-**Luis Botello:**  
-
-**Journey Gault:**  
-
-**Praveen Ramkumar:**
-
-Feature Name: Family Contact Report Page
-
-Pages:
-  1. Pages -> family_contact.php
-  2. Pages -> fc_update.php
-  3. Pages -> body -> family-contact -> family_contact.php
-  4. Pages -> body -> family-contact -> fc_update.php
-
-Features: 
-1. Update family contacts
-2. Delete family contacts
-3. List family contacts
-4. Search contact by names
-5. Remote Database Server
-
-
-We have created a shared MySQL Db.
-![DB](https://github.com/2021-Winter-HTTP-5202-A/ChopperForceFive/blob/main/Images/Capture.PNG)
