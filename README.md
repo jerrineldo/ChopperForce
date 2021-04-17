@@ -11,13 +11,17 @@ An HR application developed for the us army.
 #
 # Features and Discriptions
 
-**Asia Levesque Gault:** Homepage, Header, Nav, Footer, OER(Feature 1), NCOER(Feature 2), Pie Chart(Feature 3).
+**Asia Levesque Gault:** 
+
+Homepage, Header, Nav, Footer, OER(Feature 1), NCOER(Feature 2), Pie Chart(Feature 3).
 
 Home Page, Header, Nav and Footer:
 
 The Home page was created to house different features all of which would facilitate information flow to the user. The home page gives a snap shot of the organizations strengths and shortcomings. I created and included a pie chart to visualize the organization capacity strength. In the future I would create a pie Chart for Weapons Qualification, and the Physical Fitness report results. This would allow the commanding officer to monitor his organization and see where the short comings reside. From the Home page the user can easily naavigate to view the organization's reports.  
 
-OER & NCOER: The OER & NCOER page has full CRUD functionality. An OER & NCOER is similar to a report card. These two pages will track upcoming due OER & NCOER, who rated a soldier, and the scores of past OER & NCOER. Both OER & NCOER use their models to pull information from the db tables: users, enlisted_reportcards and officer_reportcards and pass that to the views. 
+OER & NCOER: 
+
+The OER & NCOER page has full CRUD functionality. An OER & NCOER is similar to a report card. These two pages will track upcoming due OER & NCOER, who rated a soldier, and the scores of past OER & NCOER. Both OER & NCOER use their models to pull information from the db tables: users, enlisted_reportcards and officer_reportcards and pass that to the views. 
 
 
 
