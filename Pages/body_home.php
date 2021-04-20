@@ -45,11 +45,7 @@ foreach ($OerList as $Oer) {
   }
 }
 
-foreach ($Users as $user) {
 
-             // var_dump([$user->rank , $user->NumberofSoldiersByRank]);
-    var_dump((int)$user->NumberofSoldiersByRank);
-}
 ?>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
@@ -91,7 +87,7 @@ foreach ($Users as $user) {
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title" id="rosterTitle" style="color:#9d9d9d; padding-left: 5px;">Pie Chart:</h4>
-                <div id="piechart" style="width: 900px; height: 500px;"></div>
+                <div id="piechart" style="width: 500px; height: 500px;"></div>
                 </body>
             </div>
         </div>
