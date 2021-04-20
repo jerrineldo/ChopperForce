@@ -48,11 +48,11 @@ $CompanyList = $PersonalDto->getAllUsers($db);
             <form action="personnel_update.php" method="get">
                   <input type="hidden" name="id" value="<?=$Soldier->id?>"/>
                   <input type="submit" class="button btn btn-primary" name="updateSoldier" value="Update"/>
-              </form>
+            </form>
           </td>
           <td>
-              <form action="delete_confirm/<?=$Soldier->id?>" method="post">
-                  <input type="hidden" name="id" value=""/>
+              <form action="personnel_deleteconfirm.php" method="GET">
+                  <input type="hidden" name="id" value="<?=$Soldier->id?>"/>
                   <input type="submit" class="button btn btn-danger" name="deleteSoldier" value="Delete"/>
               </form>
           </td>
@@ -60,6 +60,6 @@ $CompanyList = $PersonalDto->getAllUsers($db);
         <?php } ?>
       </tbody>
     </table>
-    <a href="data_entery_form.php" id="Personnel_Add" class="btn btn-success btn-lg float-right">Add Soldier</a>
+    <a href="./personnel_add.php" id="Personnel_Add" class="btn btn-success btn-lg float-right">Add Soldier</a>
   </div>
 </div>

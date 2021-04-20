@@ -1,0 +1,14 @@
+<?php 
+  include "header.php"; 
+  include "nav.php"; 
+?>
+<link rel="stylesheet" href="../Stylesheets/reports_page.css">
+
+<?php 
+  require_once '../Models/DatabaseContext.php';
+  require_once '../Models/User.php';
+  require_once '../Models/PhysicalFitness.php';
+  require_once '../Models/FitnessCategory.php';
+  require_once './physicalfitness_report/delete_confirm.php';
+  include "footer.php"; 
+?>
