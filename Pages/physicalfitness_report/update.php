@@ -8,39 +8,60 @@ $soldier_id = $_GET["id"];
 
 $selected_soldier = FitnessReport::getFitnessReportById($soldier_id, $db);
 
+var_dump($selected_soldier);
+
 if (isset($_POST["updateConfirm"])) {
 
-    $updated_fitnessreport = new FitnessReport($_POST['rank'],$_POST['first_name'],$_POST['last_name'],$_POST['dob'],$_POST['MDL'], $_POST['SPT'],$_POST['HRP'],$_POST['SDC'],
-    $_POST['LTK'],$_POST['2MR'],$_POST['Total'],$_POST['FitnessCategory']);
+    $updated_fitnessreport = new FitnessReport(
+                                                $_POST['id'],
+                                                $_POST['rank'],
+                                                $_POST['first_name'],
+                                                $_POST['last_name'],
+                                                $_POST['dob'],
+                                                $_POST['MDL'],
+                                                $_POST['SPT'],
+                                                $_POST['HRP'],
+                                                $_POST['SDC'],
+                                                $_POST['LTK'],
+                                                $_POST['2MR'],
+                                                $_POST['Total'],
+                                                $_POST['FitnessCategory'],
+                                                $soldier_id
+                                              );
 
-    $response = $updated_fitnessreport->updateFitnessReport($updated_fitnessreport, $db);
+    $response = $updated_fitnessreport::updateFitnessReport($updated_fitnessreport, $db);
+
+    if($response) {
+    ?>
+        <script>window.location.href = "./physicalFitness.php";</script>
+    <?php //Redirect to list after a successful update
+    }
 }
 
 ?>
 
-
 <div class="container">
     <h2 class="report-title">Physical Fitness Report - Update</h2>
     <form method="POST" name="fitnessreport-update" action="">
-    <input type="hidden" name="id" value="<?=$soldier_id?>">
+    <input type="hidden" name="id" value="<?=$selected_soldier->id?>">
         <div class="form-row">
           <div class="form-group col-md-6">
                 <label class="label label-default" for="fitnessreport-update_Rank">Rank:</label>
-                <input type="text" class="form-control" id="fitnessreport-update_Rank" placeholder="Rank" name="rank" value="<?=$selected_soldier->rank?>">
+                <input type="text" class="form-control" id="fitnessreport-update_Rank" readonly placeholder="Rank" name="rank" value="<?=$selected_soldier->rank?>">
           </div>
           <div class="form-group col-md-6">
                 <label class="label label-default" for="fitnessreport-update_fName">First Name:</label>
-                <input type="text" class="form-control" id="fitnessreport-update_fName" name="first_name" placeholder="First Name" value="<?=$selected_soldier->first_name?>">
+                <input type="text" class="form-control" id="fitnessreport-update_fName" readonly name="first_name" placeholder="First Name" value="<?=$selected_soldier->first_name?>">
           </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label class="label label-default" for="fitnessreport-update_lName">Last Name:</label>
-                <input type="text" class="form-control" id="fitnessreport-update_lName" name="last_name" placeholder="Last Name" value="<?=$selected_soldier->last_name?>">
+                <input type="text" class="form-control" id="fitnessreport-update_lName" readonly name="last_name" placeholder="Last Name" value="<?=$selected_soldier->last_name?>">
             </div>
             <div class="form-group col-md-6">
                 <label class="label label-default" for="fitnessreport-update_DOB">Date of Birth:</label>
-                <input type="text" class="form-control" id="fitnessreport-update_DOB" name="dob" placeholder="DOB" value="<?=$selected_soldier->dob?>">
+                <input type="text" class="form-control" id="fitnessreport-update_DOB" readonly name="dob" placeholder="DOB" value="<?=$selected_soldier->dob?>">
             </div>
         </div>
         <div class="form-row">
@@ -76,11 +97,11 @@ if (isset($_POST["updateConfirm"])) {
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label class="label label-default" for="fitnessreport-update_Total">Total:</label>
-                <input type="text" class="form-control" id="fitnessreport-update_Total" name="Total" placeholder="Total" value="<?=$selected_soldier->total?>">
+                <input type="text" class="form-control" id="fitnessreport-update_Total" name="Total" readonly placeholder="Total" value="<?=$selected_soldier->total?>">
             </div>
             <div class="form-group col-md-6">
                 <label class="label label-default" for="fitnessreport-update_FitnessCategory">Fitness Category:</label>
-                <input type="text" class="form-control" id="fitnessreport-update_FitnessCategory" name="FitnessCategory" placeholder="FitnessCategory" value="<?=$selected_soldier->demand_category?>">
+                <input type="text" class="form-control" id="fitnessreport-update_FitnessCategory" readonly name="FitnessCategory" placeholder="FitnessCategory" value="<?=$selected_soldier->demand_category?>">
             </div>
         </div>
         <div class="form-row">
