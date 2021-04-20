@@ -5,7 +5,8 @@ require 'header.php';
 require 'nav.php';
 
 
-
+require_once '../Models/DatabaseContext.php';
+require_once '../Models/User.php';
 require_once './soldier_info/soldier_info_form.php';
 require 'footer.php';
 ?>
