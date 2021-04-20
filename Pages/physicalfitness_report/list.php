@@ -4,8 +4,6 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-
-
 $db = DatabaseContext::dbConnect();
 
 $FitnessReportDto = new FitnessReport();
@@ -14,7 +12,7 @@ $FitnessReportList = $FitnessReportDto->GenerateFitnessReport($db);
 
 ?>
 
-
+<div class="container personnelreport">
 <h2 class="report-title">Physical Fitness Report</h2>
 <div class="m-1">
   <table class="table table-bordered tbl">
@@ -44,7 +42,7 @@ $FitnessReportList = $FitnessReportDto->GenerateFitnessReport($db);
         <td><?= $Report->first_name?></td>
         <td><?= $Report->last_name?></td>
         <td><?= $Report->dob?></td>
-        <td>19 March 2021</td>
+        <td><?= $Report->date?></td>
         <td><?= $Report->MDL?></td>
         <td><?= $Report->SPT?></td>
         <td><?= $Report->HRP?></td>
@@ -60,8 +58,8 @@ $FitnessReportList = $FitnessReportDto->GenerateFitnessReport($db);
             </form>
         </td>
         <td>
-            <form action="" method="post">
-                <input type="hidden" name="id" value=""/>
+            <form action="physicalFitness_deleteconfirm.php" method="get">
+                <input type="hidden" name="id" value="<?=$Report->id?>"/>
                 <input type="submit" class="button btn btn-danger" name="fitness-report_delete" value="Delete"/>
             </form>
         </td>
@@ -69,7 +67,8 @@ $FitnessReportList = $FitnessReportDto->GenerateFitnessReport($db);
       <?php } ?>
     </tbody>
   </table>
-  <a href="" id="Fitness_Add" class="btn btn-success btn-lg float-right">Add Soldier</a>
+  <a href="./physicalFitness_add.php" id="Fitness_Add" class="btn btn-success btn-lg float-right">Add Soldier</a>
+</div>
 </div>
 
 

@@ -24,6 +24,7 @@
 /*==============3.BODY=================*/
 body{
     background-color:#333333;
+    margin-bottom: 50px;
 }
 .list-group{
     width:45%;
@@ -48,3 +49,17 @@ body{
     text-align: center;
     padding-top: 10px;
 }
+
+.delete-container{
+    color:white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+    height: 100px;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.delete-container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
