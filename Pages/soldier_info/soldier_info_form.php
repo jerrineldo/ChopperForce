@@ -1,24 +1,12 @@
 <?php
-require_once './/Models/DatabaseContext.php';
-require_once './/Models/User.php';
-//Double Check Connection
 
 //Initial adding of user
 if(isset($_POST['addUser'])){
-    
-    $mos=$_POST ['mos'];
-    $rank=$_POST ['rank'];
-    $first_name=$_POST ['first_name'];
-    $last_name=$_POST ['last_name'];
-    $ssn=$_POST ['ssn'];
-    $dod_id=$_POST ['dod_id'];
-    $dob=$_POST ['dob'];
-    $blood_type=$_POST ['blood_type'];
-    $address=$_POST ['address'];
+    $newUser = new User($_POST ['mos'],$_POST ['rank'],$_POST ['first_name'],$_POST ['last_name'],$_POST ['ssn'],$_POST ['dod_id'],$_POST ['dob'],$_POST ['blood_type'],$_POST ['address']);
     
     $db = Database::getDb();
     $s = new User();
-    $c = $s->addUser($mos, $rank, $first_name, $last_name, $ssn, $dod_id,$dob,$blood_type,$address,$db);
+    $c = $newUser->addUser($db);
     if($c){
         echo"added";
 
