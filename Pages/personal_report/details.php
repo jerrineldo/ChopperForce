@@ -4,9 +4,6 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-require 'header.php';
-require 'nav.php';
-
 $db = DatabaseContext::dbConnect();
 
 $user_id = $_GET['id'];
@@ -21,6 +18,15 @@ $emergencyContacts = $emergencyContacts->getEmergencyContactByID($db,$user_id);
 $familyContacts = $familyContacts->getFamilyContactByID($db,$user_id);
 $awards = $awards->getAwardsById($user_id,$db);
 $duty = $duty->getDutieById($user_id,$db);
-?>
 
-<?php require 'footer.php'; ?>
+var_dump($fitnessReport);
+echo "\n";
+var_dump($emergencyContacts);
+echo "\n";
+var_dump($familyContacts);
+echo "\n";
+var_dump($awards);
+echo "\n";
+var_dump($duty);
+echo "\n";
+?>

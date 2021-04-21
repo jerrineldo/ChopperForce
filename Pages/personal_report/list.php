@@ -45,7 +45,7 @@ $CompanyList = $PersonalDto->getAllUsers($db);
           <td><?= $Soldier->dob ?></td>
           <td><?= $Soldier->address ?></td>
           <td>
-            <form action="./personal_report/user_details.php" method="get">
+            <form action="personnel_details.php" method="get">
                   <input type="hidden" name="id" value="<?=$Soldier->id?>"/>
                   <input type="submit" class="button btn btn-success" name="userDetails" value="Details"/>
             </form>
