@@ -27,7 +27,7 @@ The OER & NCOER page has full CRUD functionality. An OER & NCOER is similar to a
 
 **Jerrin Eldo Mazhuvancherry:** Login
 
-**Luis Botello:** Company List (Interface, Read, Update), Business logic for OER/NCOER overdue alerts on front-page
+**Luis Botello:** Company List (Interface, Read, Update), Business logic for OER/NCOER overdue alerts on front-page, Accounts model, and user details
 
 **Journey Gault:** Awards Report(full CRUD), Duties Report(full CRUD), 3d feature is  OER Alerts, NCOER Alerts and Roster on the home page. Roster is number of soldiers by rank, and the oer alerts and ncoer alerts, show ALL upcoming NCOER and OER reports that are due in the next 30 days. This third feature was an attempt to create a sort of "At a glance" view for the users.
 
