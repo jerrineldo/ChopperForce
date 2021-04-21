@@ -27,6 +27,7 @@ $CompanyList = $PersonalDto->getAllUsers($db);
           <th scope="col">Bloodtype</th>
           <th scope="col">DOB</th>
           <th scope="col">Address</th>
+          <th scope="col">Details</th>
           <th scope="col">Update</th>
           <th scope="col">Delete</th>
         </tr>
@@ -44,7 +45,12 @@ $CompanyList = $PersonalDto->getAllUsers($db);
           <td><?= $Soldier->dob ?></td>
           <td><?= $Soldier->address ?></td>
           <td>
-          
+            <form action="user_details.php" method="get">
+                  <input type="hidden" name="id" value="<?=$Soldier->id?>"/>
+                  <input type="submit" class="button btn btn-success" name="userDetails" value="Details"/>
+            </form>
+          </td>
+          <td>
             <form action="personnel_update.php" method="get">
                   <input type="hidden" name="id" value="<?=$Soldier->id?>"/>
                   <input type="submit" class="button btn btn-primary" name="updateSoldier" value="Update"/>
