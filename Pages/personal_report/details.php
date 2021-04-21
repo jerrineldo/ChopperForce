@@ -34,8 +34,6 @@ $user = $user->getUserById($user_id,$db);
                     <tr>
                         <th scope="col">MOS</th>
                         <th scope="col">Rank</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">First Name</th>
                         <th scope="col">SSN</th>
                         <th scope="col">DOD ID</th>
                         <th scope="col">Bloodtype</th>
@@ -47,8 +45,6 @@ $user = $user->getUserById($user_id,$db);
                     <tr>
                         <td><?= $user->mos ?></td>
                         <td><?= $user->rank ?></td>
-                        <td><?= $user->first_name ?></td>
-                        <td><?= $user->last_name ?></td>
                         <td><?= $user->ssn //Should this be plaintext? ?></td>
                         <td><?= $user->dod_id ?></td>
                         <td><?= $user->blood_type ?></td>
