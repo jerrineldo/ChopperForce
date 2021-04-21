@@ -33,6 +33,10 @@ body{
 #rosterTitle {
     color: #9d9d9d;
 }
+#homeReports{
+    background-color: #fff;
+    color: black;
+}
 
 /*==============4.FOOTER=================*/
 .footer {
