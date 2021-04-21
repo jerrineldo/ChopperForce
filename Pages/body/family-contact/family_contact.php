@@ -32,7 +32,7 @@ if(isset($_GET['search']) && $searchKey){
         <input type="text" class="form-control" id="frg_search" name="search" placeholder="Search By Name">
         <input type="submit" value="Search" class="btn btn-success"/>
     </form>
-
+    <a href="fc_create.php" class="btn btn-info btn_link">Add new Family Contact</a>
     <?php
         if(count($fcList) === 0){
             echo("<p class='not-found'>No Results Found<p>");

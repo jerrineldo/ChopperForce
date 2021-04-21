@@ -2,7 +2,7 @@
     class FamilyContact
     {
         public function getAllFamilyContacts($db){
-            $sql = "SELECT fc.id, userId, CONCAT(fc.first_name, ' ' ,fc.last_name) AS 'member_name', fc.relationship, fc.phone, fc.email, fc.address, fc.preference_form, fc.physical_location, CONCAT(u.last_name, ' ', u.first_name) AS 'full_name', u.`rank` 
+            $sql = "SELECT fc.id, userId, CONCAT(fc.first_name, ' ' ,fc.last_name) AS 'member_name', fc.relationship, fc.phone, fc.email, fc.address, fc.preference_form, fc.physical_location, CONCAT(u.first_name, ' ', u.last_name) AS 'full_name', u.`rank` 
             FROM family_contacts as fc
             JOIN `user` u ON fc.userId  = u.id";
             $pdostm = $db->prepare($sql);
@@ -78,7 +78,7 @@
         }
 
         public function searchFamilyContacts($db, $name){
-            $sql = "SELECT fc.id, userId, CONCAT(fc.first_name, ' ' ,fc.last_name) AS 'full_name', fc.relationship, fc.phone, fc.email, fc.address, fc.preference_form, fc.physical_location, CONCAT(u.last_name, ' ', u.first_name) AS 'member_name', u.`rank` 
+            $sql = "SELECT fc.id, userId, CONCAT(fc.first_name, ' ' ,fc.last_name) AS 'member_name', fc.relationship, fc.phone, fc.email, fc.address, fc.preference_form, fc.physical_location, CONCAT(u.last_name, ' ', u.first_name) AS 'full_name', u.`rank` 
             FROM family_contacts as fc
             JOIN `user` u ON fc.userId  = u.id
             WHERE LOWER((CONCAT(fc.first_name, ' ' ,fc.last_name)) LIKE :fullname) OR LOWER((CONCAT(u.first_name, ' ' ,u.last_name)) LIKE :fullname)";
