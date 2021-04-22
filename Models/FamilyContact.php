@@ -1,4 +1,7 @@
 <?php
+ini_set('display_startup_errors', 1);
+ini_set('display_errors', 1);
+error_reporting(-1);
     class FamilyContact
     {
         public function getAllFamilyContacts($db){
@@ -27,12 +30,13 @@
             return $count;
         }
 
-        public function addFamilyContact($db, $first_name, $last_name, $relationship, $phone, $email, $address, $preference_form, $physical_location){
+        public function addFamilyContact($db, $user_Id, $first_name, $last_name, $relationship, $phone, $email, $address, $preference_form, $physical_location){
             $sql = "INSERT INTO family_contacts 
-            (first_name, last_name, relationship, phone, email, address, preference_form, physical_location) 
-            VALUES (:first_name, :last_name, :relationship, :phone, :email, :address, :preference_form, :physical_location)";
+            (userId, first_name, last_name, relationship, phone, email, address, preference_form, physical_location) 
+            VALUES (:user_Id, :first_name, :last_name, :relationship, :phone, :email, :address, :preference_form, :physical_location)";
             
             $pst = $db->prepare($sql);
+            $pst->bindParam(':user_Id', $user_Id);
             $pst->bindParam(':first_name', $first_name);
             $pst->bindParam(':last_name', $last_name);
             $pst->bindParam(':relationship', $relationship);
@@ -78,7 +82,7 @@
         }
 
         public function searchFamilyContacts($db, $name){
-            $sql = "SELECT fc.id, userId, CONCAT(fc.first_name, ' ' ,fc.last_name) AS 'member_name', fc.relationship, fc.phone, fc.email, fc.address, fc.preference_form, fc.physical_location, CONCAT(u.last_name, ' ', u.first_name) AS 'full_name', u.`rank` 
+            $sql = "SELECT fc.id, userId, CONCAT(fc.first_name, ' ' ,fc.last_name) AS 'member_name', fc.relationship, fc.phone, fc.email, fc.address, fc.preference_form, fc.physical_location, CONCAT(u.first_name, ' ', u.last_name) AS 'full_name', u.`rank` 
             FROM family_contacts as fc
             JOIN `user` u ON fc.userId  = u.id
             WHERE LOWER((CONCAT(fc.first_name, ' ' ,fc.last_name)) LIKE :fullname) OR LOWER((CONCAT(u.first_name, ' ' ,u.last_name)) LIKE :fullname)";

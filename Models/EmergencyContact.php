@@ -2,7 +2,7 @@
     class EmergencyContact
     {
         public function getAllEmergencyContact($db){
-            $sql = 'SELECT ec.id AS "id", plt,  u.rank, CONCAT(u.first_name, " " ,u.last_name) AS "full_name", CONCAT(ec.first_name, " " ,ec.last_name, ", ",ec.initial) AS "contact_name", phone, email
+            $sql = 'SELECT ec.id AS "id",  u.rank, CONCAT(u.first_name, " " ,u.last_name) AS "full_name", CONCAT(ec.first_name, " " ,ec.last_name, ", ",ec.initial) AS "contact_name", phone, email
             FROM emergency_contact as ec
             JOIN `user` u ON ec.user_Id  = u.id';
             $pdostm = $db->prepare($sql);
@@ -27,12 +27,13 @@
             return $count;
         }
 
-        public function addEmergencyContactByID($db, $initial, $firstName, $lastName, $phone, $email){
+        public function addEmergencyContactByID($db, $userId, $initial, $firstName, $lastName, $phone, $email){
             $sql = "INSERT INTO emergency_contact 
-            (initial, firstName, lastName, phone, email) 
-            VALUES (:initial, :firstName, :lastName, :phone, :email)";
+            (user_id, initial, first_name, last_name, phone, email) 
+            VALUES (:userId, :initial, :firstName, :lastName, :phone, :email)";
             
             $pst = $db->prepare($sql);
+            $pst->bindParam(':userId', $userId);
             $pst->bindParam(':initial', $initial);
             $pst->bindParam(':firstName', $firstName);
             $pst->bindParam(':lastName', $lastName);
@@ -69,7 +70,7 @@
         }
 
         public function searchEmergencyContact($db, $name){
-            $sql = "SELECT ec.plt AS 'plt', ec.id, user_Id, CONCAT(u.first_name, ' ' ,u.last_name) AS 'full_name', ec.phone, ec.email, CONCAT(ec.first_name, ' ' ,ec.last_name, ', ',ec.initial) AS 'contact_name', u.`rank` 
+            $sql = "SELECT ec.id, user_Id, CONCAT(u.first_name, ' ' ,u.last_name) AS 'full_name', ec.phone, ec.email, CONCAT(ec.first_name, ' ' ,ec.last_name, ', ',ec.initial) AS 'contact_name', u.`rank` 
             FROM emergency_contact as ec
             JOIN `user` u ON ec.user_Id  = u.id
             WHERE LOWER((CONCAT(ec.first_name, ' ' ,ec.last_name, ', ',ec.initial)) LIKE :fullname) OR LOWER((CONCAT(u.first_name, ' ' ,u.last_name)) LIKE :fullname)";
