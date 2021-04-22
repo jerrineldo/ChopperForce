@@ -1,6 +1,5 @@
 <?php 
     require_once 'header.php';
-    
 ?>
 
 <style>
@@ -14,15 +13,20 @@
 
 </style>
 
-<script src="https://kit.fontawesome.com/ba2fdf1c36.js" crossorigin="anonymous"></script>
 
 
 <?php
+
    require_once 'nav.php';
-   require_once '../Models/DatabaseContext.php';
-   require_once '../Models/Account.php';
-   require_once './Login/Login.php';
- 
+?>
+<div class="logout-content">
+
+<h2>You have been Logged out</h2>
+<a class="btn btn-primary align-right" name="login" href="Login.php" role="button">Click here to Login</a>
+
+</div>
+
+<?php
    require_once 'footer.php'; 
 
 ?>

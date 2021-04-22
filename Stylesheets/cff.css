@@ -63,3 +63,28 @@ body{
 .delete-container:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
+
+/* Nav bar styles for logout button */
+.navbar-username{
+    margin:0;
+}
+
+.logout-form_button{
+    margin-top: 10px;
+}
+
+.logout-content{
+
+    width: 60%;
+    height: 235px;
+    margin: 16px auto;
+    border: 1px solid black;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px;
+    text-align: center;
+    border-radius: 4px;
+
+}
+.logout-content h2{
+    color: white;
+}
