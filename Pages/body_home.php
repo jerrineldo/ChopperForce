@@ -1,9 +1,9 @@
 
 <!--Use DB Data to generate quantities of people-->
 <?php
-ini_set('display_errors', '1');
+/*ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 require_once "../Models/OER.php";
 require_once "../Models/NCOER.php";
 require_once "../Models/User.php";
@@ -87,7 +87,7 @@ foreach ($OerList as $Oer) {
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title" id="rosterTitle" style="color:#9d9d9d; padding-left: 5px;">Pie Chart:</h4>
-                <div id="piechart" style="width: 500px; height: 500px;"></div>
+                <div id="piechart" style="width: 400px; height: 400px;"></div>
                 </body>
             </div>
         </div>
