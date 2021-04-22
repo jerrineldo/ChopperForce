@@ -95,5 +95,11 @@
       height: 2px;
       color: white;
   }
-  
+
+  .login-form__errormessages {
+    text-align: center;
+    color: red;
+    display: none;
+  }
+
   /*CSS styles Added By Jerrin Eldo Mazhuvancherry P*/

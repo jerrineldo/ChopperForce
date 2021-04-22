@@ -1,7 +1,4 @@
 <?php
-ini_set('display_startup_errors', 1);
-ini_set('display_errors', 1);
-error_reporting(-1);
 require_once "../Models/EmergencyContact.php";
 require_once "../Models/DatabaseContext.php";
 
@@ -34,6 +31,7 @@ if(isset($_GET['search']) && $searchKey){
         <input type="text" class="form-control" id="eg_search" name="search" placeholder="Search By Name">
         <button type="submit" class="btn btn-success">Search</button>
     </form>
+    <a href="ec_create.php" class="btn btn-info btn_link">Add new Emergency Contact</a>
     <?php
         if(count($ecList) === 0){
             echo("<p class='not-found'>No Results Found<p>");
@@ -42,9 +40,8 @@ if(isset($_GET['search']) && $searchKey){
     <table class="table table-dark table-striped table-responsive tbl__frg">
         <thead>
             <tr>
-                <th scope="col">PLT</th>
-                <th scope="col">Rank</th>
                 <th scope="col">Full Name</th>
+                <th scope="col">Rank</th>
                 <th scope="col">Contact Person Name</th>
                 <th scope="col">Phone</th>
                 <th scope="col">Email</th>
@@ -55,9 +52,8 @@ if(isset($_GET['search']) && $searchKey){
         <tbody>
             <?php foreach ($ecList as $contact) { ?>
                 <tr>
-                    <td><?= $contact->plt; ?></td>
-                    <td><?= $contact->rank; ?></td>
                     <td><?= $contact->full_name; ?></td>
+                    <td><?= $contact->rank; ?></td>
                     <td><?= $contact->contact_name; ?></td>
                     <td><?= $contact->phone; ?></td>
                     <td><?= $contact->email; ?></td>

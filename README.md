@@ -27,22 +27,9 @@ The OER & NCOER page has full CRUD functionality. An OER & NCOER is similar to a
 
 **Jerrin Eldo Mazhuvancherry:** Login
 
-**Luis Botello:** Company List (Interface, Read, Update), Business logic for OER/NCOER overdue alerts on front-page
+**Luis Botello:** Company List (Interface, Read, Update), Business logic for OER/NCOER overdue alerts on front-page, Accounts model, and user details
 
 **Journey Gault:** Awards Report(full CRUD), Duties Report(full CRUD), 3d feature is  OER Alerts, NCOER Alerts and Roster on the home page. Roster is number of soldiers by rank, and the oer alerts and ncoer alerts, show ALL upcoming NCOER and OER reports that are due in the next 30 days. This third feature was an attempt to create a sort of "At a glance" view for the users.
 
-**Praveen Ramkumar:** family-contact & update, weapons, weapons-qualificaion & update, emergency contact & update
-
-
-Pages:
-  1. Pages -> emergency_contact.php
-  2. Pages -> update_contact.php
-  3. Pages -> body -> emergency-contact -> emergency_contact.php
-  4. Pages -> body -> emergency-contact -> update_contact.php
-
-Features: 
-1. Update emergency contacts
-2. Delete emergency contacts
-3. List emergency contacts
-4. Search contact by names
+**Praveen Ramkumar:** family-contact (create, read, update, delete, search),emergency contact (create, read, update, delete, search), weapons (read, delete), weapons-qualificaion (read, update, delete), Hosted DB on Server
 
