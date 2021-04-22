@@ -197,6 +197,35 @@
             $count = $pst->execute();
             return $count;
         }
+        public function getFitnessReportByUserId($id, $db){
+            $sql = "select u.id as UserId,
+            MDL, pf.id, SPT, HRP ,SDC ,LTK, MR, total, date, first_name, last_name,rank, dob, spf.demand_category from soldier_physical_fitness pf
+                JOIN user u
+                ON pf.User_Id = u.id 
+                Join soldier_physical_fitnesscategories spf 
+                ON spf.category_id = pf.physical_fitness_categories_id  where u.id = :personnel_id";//Possible error
+            $pst = $db->prepare($sql);
+            $pst->bindParam(':personnel_id', $id);
+            $pst->execute();
+            $report = $pst->fetchAll(\PDO::FETCH_OBJ);
+            return $report;
+        }
+
+        public function SearchFitnessReport($db, $SearchKey){
+            $sql = "select u.id as UserId,
+            MDL, pf.id, SPT, HRP ,SDC ,LTK, MR, total, first_name, last_name,rank, dob,date, spf.demand_category from soldier_physical_fitness pf
+            JOIN user u
+            ON pf.User_Id = u.id 
+            Join soldier_physical_fitnesscategories spf 
+            ON spf.category_id = pf.physical_fitness_categories_id 
+            WHERE LOWER((CONCAT(first_name, ' ' ,last_name)) LIKE :fullname)";
+            $pdostm = $db->prepare($sql);
+            $searchKey = "%".strtolower($SearchKey)."%";
+            $pdostm->bindParam(':fullname', $searchKey);
+            $pdostm->execute();
+            $results = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+            return $results;
+        }
 
     }
 

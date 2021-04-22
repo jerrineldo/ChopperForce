@@ -7,7 +7,7 @@ class Account {
     private $password;
     private $role; // Might be good idea to make this into a separate table after
 
-    public function __construct($id = null, $user_id, $username, $password, $role) {
+    public function __construct($id = null, $user_id = null, $username = null, $password = null, $role = null) {
         $this->id = $id;
         $this->user_id = $user_id;
         $this->username = $username;
@@ -66,14 +66,20 @@ class Account {
         $pst = $db->prepare($sql);
         $pst->execute();
         $personnels = $pst->fetchAll(\PDO::FETCH_OBJ);
-        return $accounts; //Returns array of accounts
+        return $personnels; //Returns array of accounts
     }
     public function addAccount(Account $account, $db) {
+
+        $userId = $account->getUserId();
+        $username = $account->getUsername();
+        $password = $account->getPassword();
+        $role = $account->getRole();
+
         $sql = "INSERT INTO login (user_id, username, password, role) 
               VALUES (:user_id, :username, :password, :role)";
         $pst = $db->prepare($sql);
 
-        $pst->bindParam(':user_id', $user_id);
+        $pst->bindParam(':user_id', $userId);
         $pst->bindParam(':username', $username);
         $pst->bindParam(':password', $password);
         $pst->bindParam(':role', $role);

@@ -68,7 +68,16 @@ class User
         $pst = $db->prepare($sql);
         $pst->bindParam(':id', $id);
         $pst->execute();
-        return $pst->fetch(\PDO::FETCH_OBJ);
+        $user = $pst->fetch(\PDO::FETCH_OBJ);
+        return $user;
+    }
+    public function getUserByUserId($id, $db){
+        $sql = "SELECT * FROM user where id = :id";//Possible error
+        $pst = $db->prepare($sql);
+        $pst->bindParam(':id', $id);
+        $pst->execute();
+        $user = $pst->fetchAll(\PDO::FETCH_OBJ);
+        return $user;
     }
     public function getAllUsers($dbcon){
         $sql = "SELECT * FROM user";
@@ -169,4 +178,16 @@ class User
         $count = $pst->execute();
         return $count;
     }
+
+    public function searchUser($db, $SearchKey){
+        $sql = "SELECT * FROM user   
+        WHERE LOWER((CONCAT(first_name, ' ' ,last_name)) LIKE :fullname)";
+        $pdostm = $db->prepare($sql);
+        $searchKey = "%".strtolower($SearchKey)."%";
+        $pdostm->bindParam(':fullname', $searchKey);
+        $pdostm->execute();
+        $results = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+        return $results;
+    }
+
 }

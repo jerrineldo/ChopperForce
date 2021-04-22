@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+?>
+
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -28,8 +35,36 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span>Register</a></li>
-            <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <?php if(isset($_SESSION['loggedin'])) { ?>
+                <span class="navbar-text">
+                    <h4 class="navbar-username">Hello  <?php echo $_SESSION['username'] ?></h4>
+                </span>
+                <li>
+                <form action="" method="POST" name="logout-form">
+                    <input type="submit" name="logout-form_button" value="Logout" class="btn btn-primary logout-form_button">
+                </form>
+                </li>
+            <?php } else { ?>
+                <li><a href="Login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <?php } ?>
+            
         </ul>
     </div>
 </nav>
 <!--Asia Levesque-->
+
+
+<?php
+
+    //Unset all the session varibles made.
+    if(isset($_POST['logout-form_button'])) {
+
+        unset($_SESSION['username']);
+        unset($_SESSION['usertype']);
+        unset($_SESSION['loggedin']);
+        unset($_SESSION['userid']);
+        header("Location: Logout.php");
+
+    }
+
+?>
