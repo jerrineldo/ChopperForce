@@ -1,4 +1,5 @@
 <?php 
+
 require_once "../Models/FamilyContact.php";
 require_once "../Models/User.php";
 require_once "../Models/DatabaseContext.php";
@@ -9,10 +10,10 @@ $fc = new FamilyContact();
 $user = new User();
 $relationships = ["Spouse", "Father", "Mother", "Brother", "Sister"];
 $preferences = ["Yes", "No"];
-$userIds = $user->getAllUsersID($dbcon);
-var_dump($userIds);
+$userIds = $user->getAllUsers($dbcon);
 // validation variables
 $fNameErr = $lNameErr = $phoneErr = $emailErr = $addressErr = null;
+$first_name = $last_name = $relationship = $phone = $email = $address = $preference_form = $physical_location = "";
 
 function validateFields($first_name, $last_name, $phone, $email, $address){
     global $fNameErr, $lNameErr, $relationErr, $phoneErr, $emailErr, $addressErr, $preferenceErr, $locationError;
@@ -53,11 +54,11 @@ if (isset($_POST['fc_create'])){
 
     $validationError = validateFields($first_name, $last_name, $phone, $email, $address);
     if(!$validationError){
-        $count = $fc->updateFamilyContacts($dbcon, $id, $first_name, $last_name, $relationship, $phone, $email, $address, $preference_form, $physical_location);
+        $count = $fc->addFamilyContact($dbcon, $id, $first_name, $last_name, $relationship, $phone, $email, $address, $preference_form, $physical_location);
         if($count){
            header('Location: family_contact.php');
         } else {
-            echo "<p class='not-found'>Problem Updating Family Contact<p>";
+            echo "<p class='not-found'>Problem Creating Family Contact<p>";
         }
     }
 }
@@ -66,13 +67,12 @@ if (isset($_POST['fc_create'])){
 <div class="container frg">
     <h2 class="report-title">Add  Family Contact Page</h2>
     <form method="POST" action="">
-        <input type="hidden" name="fc_id" value="<?= $id; ?>"/>
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label class="label label-default" for="fc_relationship">User ID:</label>
-                <select id="inputState" id="fc_relationship" name="fc_relationship" class="form-control">
-                    <option value="" disabled>User ID</option>
-                    <?php echo populateDropdown($userIds) ?>
+            <div class="form-group col-md-12">
+                <label class="label label-default" for="fc_userId">User ID:</label>
+                <select id="inputState" id="fc_userId" name="fc_id" class="form-control">
+                    <option value="" disabled>Select User ID</option>
+                    <?php echo PopulateDropwdownSoldier($userIds, $id) ?>
                 </select>
             </div>
             <div class="form-group col-md-6">

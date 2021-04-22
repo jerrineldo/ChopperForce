@@ -169,4 +169,12 @@ class User
         $count = $pst->execute();
         return $count;
     }
+
+    public function getAllUsersID($dbcon){
+        $sql = "SELECT id FROM user";
+        $pdostm = $dbcon->prepare($sql);
+        $pdostm->execute();
+        $users = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+        return $users;
+    }
 }
