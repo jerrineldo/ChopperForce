@@ -178,7 +178,6 @@ class User
         $count = $pst->execute();
         return $count;
     }
-
     public function searchUser($db, $SearchKey){
         $sql = "SELECT * FROM user   
         WHERE LOWER((CONCAT(first_name, ' ' ,last_name)) LIKE :fullname)";
@@ -190,4 +189,11 @@ class User
         return $results;
     }
 
+    public function getAllUsersID($dbcon){
+        $sql = "SELECT id FROM user";
+        $pdostm = $dbcon->prepare($sql);
+        $pdostm->execute();
+        $users = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+        return $users;
+    }
 }
