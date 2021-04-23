@@ -68,12 +68,12 @@ class Account {
         $personnels = $pst->fetchAll(\PDO::FETCH_OBJ);
         return $personnels; //Returns array of accounts
     }
-    public function addAccount(Account $account, $db) {
+    public function addAccount($db) {
 
-        $userId = $account->getUserId();
-        $username = $account->getUsername();
-        $password = $account->getPassword();
-        $role = $account->getRole();
+        $userId = $this->getUserId();
+        $username = $this->getUsername();
+        $password = $this->getPassword();
+        $role = $this->getRole();
 
         $sql = "INSERT INTO login (user_id, username, password, role) 
               VALUES (:user_id, :username, :password, :role)";

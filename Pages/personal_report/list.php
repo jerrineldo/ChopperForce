@@ -14,7 +14,6 @@ if($_SESSION['usertype'] == "admin"){
   if(isset($_GET['search']) && $searchKey){
     
     $CompanyList = $PersonalDto->searchUser($db, $searchKey);
-    var_dump($CompanyList);
   
   } else {
 
@@ -52,7 +51,6 @@ if($_SESSION['usertype'] == "admin"){
           <th scope="col">Bloodtype</th>
           <th scope="col">DOB</th>
           <th scope="col">Address</th>
-          <th scope="col">Details</th>
           <th scope="col">Update</th>
           <?php if($_SESSION['usertype'] == "admin") { ?>
           <th scope="col">Delete</th>
@@ -73,12 +71,6 @@ if($_SESSION['usertype'] == "admin"){
           <td><?= $Soldier->blood_type ?></td>
           <td><?= $Soldier->dob ?></td>
           <td><?= $Soldier->address ?></td>  
-          <td>
-            <form action="personnel_details.php" method="get">
-                  <input type="hidden" name="id" value="<?=$Soldier->id?>"/>
-                  <input type="submit" class="button btn btn-success" name="userDetails" value="Details"/>
-            </form>
-          </td>
           <td>
             <form action="personnel_update.php" method="get">
                   <input type="hidden" name="id" value="<?=$Soldier->id?>"/>

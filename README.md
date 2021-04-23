@@ -25,7 +25,7 @@ The OER & NCOER page has full CRUD functionality. An OER & NCOER is similar to a
 
 
 
-**Jerrin Eldo Mazhuvancherry:** Login
+**Jerrin Eldo Mazhuvancherry:** Login Functionality, Login Interface, Registration Interface, New User Registration functionality, Personnel Report (Interface, Create, Read, Update and Delete), Fitness Report(Interface, Create, Read, Delete and Update), Models - (PhysicalFitness, User, Fitness Category)
 
 **Luis Botello:** Company List (Interface, Read, Update), Business logic for OER/NCOER overdue alerts on front-page, Accounts model, and user details
 
