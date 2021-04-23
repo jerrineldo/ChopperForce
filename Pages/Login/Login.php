@@ -55,7 +55,6 @@ if(isset($_POST['login-form__submitbutton'])){
 
   }
 
-  
  }
 
 </script>
@@ -93,7 +92,7 @@ if(isset($_POST['login-form__submitbutton'])){
 
     if($accounts != false){
 
-      if($username == $accounts->username && $password == $accounts->password){
+      if($username == $accounts->username && (hash('md5',$password) == $accounts->password)){
 
         $validlogin = 1;
         
@@ -140,9 +139,8 @@ if(isset($_POST['login-form__submitbutton'])){
 
 
 <div class="main-loginpage">
-<form action="" method="POST" name="login-form" class="login-form">
+<form action="" method="POST" name="login-form" class="login-form ">
     <h1 class="login-form__mainheading">Login</h1>
-    
     <div class="login-form__inputfields">
       <label hidden>Username</label>
       <span><i class="fas fa-user"></i></span>
@@ -157,10 +155,10 @@ if(isset($_POST['login-form__submitbutton'])){
         value="<?php echo isset($_POST['login-form__password'])?$_POST['login-form__password']:''; ?>"/>
       <hr/>
     </div >
-    <div class="login-form__errormessages"><?php isset($errormessage)?$errormessage:'Jerrin'; ?></div>
+    <div class="login-form__errormessages"><?php isset($errormessage)?$errormessage:''; ?></div>
     <input type="submit" value="SIGN IN" class="login-form__submitbutton" name="login-form__submitbutton"/>
     <div class= "login-form__createLink">
-      <a href="#" class="login-form__createAccount">Dont have an Account? Join Now</a>
+      <a href="registration.php" class="login-form__createAccount">Dont have an Account? Join Now</a>
     </div>   
  </form>
  </div>

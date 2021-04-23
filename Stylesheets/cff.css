@@ -88,3 +88,8 @@ body{
 .logout-content h2{
     color: white;
 }
+
+.registrationform__errormessages{
+    color:Red;
+    text-align: center;
+}

@@ -196,4 +196,12 @@ class User
         $users = $pdostm->fetchAll(\PDO::FETCH_OBJ);
         return $users;
     }
+    public function getIdofLastInsertedUser($dbcon){
+        $sql = "SELECT max(id) as id from user";
+        $pdostm = $dbcon->prepare($sql);
+        $pdostm->execute();
+        $id = $pdostm->fetchAll(\PDO::FETCH_OBJ);
+        return $id;
+    }
+    
 }
