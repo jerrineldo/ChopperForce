@@ -52,6 +52,7 @@ if($_SESSION['usertype'] == "admin"){
           <th scope="col">DOB</th>
           <th scope="col">Address</th>
           <th scope="col">Update</th>
+          <th scope="col">Details</th>
           <?php if($_SESSION['usertype'] == "admin") { ?>
           <th scope="col">Delete</th>
           <?php
@@ -70,7 +71,13 @@ if($_SESSION['usertype'] == "admin"){
           <td><?= $Soldier->dod_id ?></td>
           <td><?= $Soldier->blood_type ?></td>
           <td><?= $Soldier->dob ?></td>
-          <td><?= $Soldier->address ?></td>  
+          <td><?= $Soldier->address ?></td>
+          <td>
+            <form action="personnel_details.php" method="get">
+                  <input type="hidden" name="id" value="<?=$Soldier->id?>"/>
+                  <input type="submit" class="button btn btn-success" name="userDetails" value="Details"/>
+            </form>
+          </td>
           <td>
             <form action="personnel_update.php" method="get">
                   <input type="hidden" name="id" value="<?=$Soldier->id?>"/>
