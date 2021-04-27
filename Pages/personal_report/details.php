@@ -113,10 +113,8 @@ $user = $user->getUserById($user_id,$db);
             <thead>
             <tbody>
                     <tr>
-                        <td><?= $emergencyContacts->plt; ?></td>
-                        <td><?= $emergencyContacts->rank; ?></td>
-                        <td><?= $emergencyContacts->full_name; ?></td>
-                        <td><?= $emergencyContacts->contact_name; ?></td>
+                        <td><?= $emergencyContacts->first_name." ".$emergencyContacts->last_name; ?></td>
+                        <td><?= $emergencyContacts->initial; ?></td>
                         <td><?= $emergencyContacts->phone; ?></td>
                         <td><?= $emergencyContacts->email; ?></td>
                     </tr>
