@@ -5,15 +5,15 @@
 
 <style>
   <?php 
-    include '../stylesheets/cff.css' 
+    include '../stylesheets/cff.css';
+    include '../stylesheets/login.css';
   ?>
-  <?php 
-    //require_once '../stylesheets/login.css';
+  <?php
     require_once '../Stylesheets/reports_page.css';
   ?>
 
 </style>
-<link rel="stylesheet" href='../stylesheets/login.css'>
+
 <script src="https://kit.fontawesome.com/ba2fdf1c36.js" crossorigin="anonymous"></script>
 
 
