@@ -103,10 +103,8 @@ $user = $user->getUserById($user_id,$db);
         <table class="table table-dark table-striped table-responsive tbl__frg">
             <thead>
                 <tr>
-                    <th scope="col">PLT</th>
-                    <th scope="col">Rank</th>
                     <th scope="col">Full Name</th>
-                    <th scope="col">Contact Person Name</th>
+                    <th scope="col">Initial</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Email</th>
                 </tr>
