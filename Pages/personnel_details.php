@@ -3,6 +3,7 @@
   include "nav.php"; 
 ?>
 <link rel="stylesheet" href="../Stylesheets/reports_page.css">
+<link rel="stylesheet" href="../Stylesheets/user_details.css">
 
 <?php 
   require_once '../Models/DatabaseContext.php';
