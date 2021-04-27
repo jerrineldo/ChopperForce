@@ -8,12 +8,12 @@
     include '../stylesheets/cff.css' 
   ?>
   <?php 
-    include '../stylesheets/login.css';
+    //require_once '../stylesheets/login.css';
     require_once '../Stylesheets/reports_page.css';
   ?>
 
 </style>
-
+<link rel="stylesheet" href='../stylesheets/login.css'>
 <script src="https://kit.fontawesome.com/ba2fdf1c36.js" crossorigin="anonymous"></script>
 
 
