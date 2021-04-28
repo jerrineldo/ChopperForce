@@ -51,8 +51,8 @@ if($_SESSION['usertype'] == "admin"){
           <th scope="col">Bloodtype</th>
           <th scope="col">DOB</th>
           <th scope="col">Address</th>
-          <th scope="col">Update</th>
           <th scope="col">Details</th>
+          <th scope="col">Update</th>
           <?php if($_SESSION['usertype'] == "admin") { ?>
           <th scope="col">Delete</th>
           <?php
