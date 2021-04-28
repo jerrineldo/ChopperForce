@@ -5,8 +5,8 @@
 
 <style>
   <?php 
-    include '../Stylesheets/cff.css';
-    include '../Stylesheets/login.css';
+    include '../stylesheets/cff.css';
+    include '../stylesheets/login.css';
   ?>
   <?php
     include '../Stylesheets/reports_page.css';
