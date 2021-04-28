@@ -3,8 +3,8 @@
     
 ?>
 
-  <link rel="stylesheet" href="../stylesheets/cff.css">
-  <link rel="stylesheet" href="../stylesheets/login.css">
+  <link rel="stylesheet" href="../Stylesheets/cff.css">
+  <link rel="stylesheet" href="../Stylesheets/login.css">
   <link rel="stylesheet" href="../Stylesheets/reports_page.css">
 
 </style>

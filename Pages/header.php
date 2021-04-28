@@ -1,4 +1,4 @@
-<html>
+<!DOCTYPE html>
 <head>
     <title>Chopper Force Five</title>
     <meta charset="utf-8">
