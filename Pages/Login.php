@@ -6,7 +6,7 @@
 <style>
   <?php 
     include '../Stylesheets/cff.css';
-    include '../Stylesheets/login.css';
+    include '../stylesheets/login.css';
   ?>
   <?php
     require_once '../Stylesheets/reports_page.css';
