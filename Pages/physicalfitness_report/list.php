@@ -76,7 +76,7 @@ if($_SESSION['usertype'] == "admin"){
         <td><?= $Report->HRP?></td>
         <td><?= $Report->SDC?></td>
         <td><?= $Report->LTK?></td>
-        <td><?= $Report->MDL?></td>
+        <td><?= $Report->MR?></td>
         <td><?= $Report->total?></td>
         <td><?= $Report->demand_category?></td>
         <?php if($_SESSION['usertype'] == "admin") { ?>
