@@ -22,11 +22,7 @@
   .main-loginpage {
       max-width: 1200px;
       margin: 0 auto;
-<<<<<<< HEAD
       background-image: url(../Images/background.jpg);
-=======
-      background-image: url(../images/background.jpg);
->>>>>>> 687f3a99afd238d9a0ff694fe5050177f3b39dc0
       background-size: cover;
   }
   

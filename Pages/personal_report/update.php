@@ -1,8 +1,4 @@
 <?php
-/* //Here for debugging purposes
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);*/
 
 $db = DatabaseContext::dbConnect();
 $soldier_id = $_GET["id"];
