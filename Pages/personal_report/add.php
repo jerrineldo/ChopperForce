@@ -1,9 +1,5 @@
 <?php
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
 if (isset($_POST["addConfirm"])) {
 
     $db = DatabaseContext::dbConnect();
@@ -27,8 +23,6 @@ if (isset($_POST["addConfirm"])) {
 }
 
 ?>
-
-
 
 <div class="container">
     <h2 class="report-title">Personnel Report - Add</h2>

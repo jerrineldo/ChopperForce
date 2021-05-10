@@ -3,14 +3,9 @@
     
 ?>
 
-<style>
-  <?php 
-    include '../Stylesheets/cff.css';
-    include '../Stylesheets/login.css';
-  ?>
-  <?php
-    include '../Stylesheets/reports_page.css';
-  ?>
+  <link rel="stylesheet" href="../Stylesheets/cff.css">
+  <link rel="stylesheet" href="../Stylesheets/login.css">
+  <link rel="stylesheet" href="../Stylesheets/reports_page.css">
 
 </style>
 

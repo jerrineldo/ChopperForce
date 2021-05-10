@@ -16,12 +16,6 @@ if (isset($_POST["deleteConfirm"])) {
 
 ?>
 
-
-
-
-
-
-
 <div class="delete-container">
     Are you sure to delete this user : <?php echo $usertobedeleted->first_name;?> <?php echo $usertobedeleted->last_name?> 
     <div class="form-row">
